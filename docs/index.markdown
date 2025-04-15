@@ -9,10 +9,6 @@ permalink: /
 ---
 # Documentación del Módulo de Reservas (bookings)
 
-**Autor:** Roldán Sanchis Martínez  
-**Asignatura:** Sistemas de Gestión Empresarial
-
----
 ## ℹ️ Información del módulo
 
 **Nombre del Módulo:** Reservas (bookings)  
@@ -35,7 +31,7 @@ movilidad reducida.
 - [Dependencias con otros módulos](/bookings/docs/markdowns/dependencias.md)
 - [Wireframes y vistas del módulo](/bookings/docs/markdowns/wireframes.md)
 - [Control de accesos](/bookings/docs/markdowns/accesos.md)
-- [Diagramas de flujo funcionales](/bookings/docs/markdowns/diagramas.md)
+- [Diagrama de flujo funcionales](/bookings/docs/markdowns/flujo.md)
 - [Esquema relacional de datos](/bookings/docs/markdowns/esquema_relacional.md)
 - [Comunicación con otros módulos](/bookings/docs/markdowns/comunicacion.md)
 
