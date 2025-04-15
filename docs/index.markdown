@@ -1,11 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
-title: Index
-permalink: /
-
 ---
 # Documentación del Módulo de Reservas (bookings)
 
@@ -28,12 +22,13 @@ movilidad reducida.
 
 ## 📂 Contenido de la Documentación
 
-- [Dependencias con otros módulos](/bookings/docs/markdowns/dependencias.md)
-- [Wireframes y vistas del módulo](/bookings/docs/markdowns/wireframes.md)
-- [Control de accesos](/bookings/docs/markdowns/accesos.md)
-- [Diagrama de flujo funcionales](/bookings/docs/markdowns/flujo.md)
-- [Esquema relacional de datos](/bookings/docs/markdowns/esquema_relacional.md)
-- [Comunicación con otros módulos](/bookings/docs/markdowns/comunicacion.md)
+- [Mapa del módulo](/bookings/docs/markdowns/00-mapa_modulo.md)
+- [Dependencias con otros módulos](/bookings/docs/markdowns/01-dependencias.md)
+- [Wireframes y vistas del módulo](/bookings/docs/markdowns/02-wireframes.md)
+- [Control de accesos](/bookings/docs/markdowns/03-accesos.md)
+- [Diagrama de flujo funcionales](/bookings/docs/markdowns/04-flujo.md)
+- [Esquema relacional de datos](/bookings/docs/markdowns/05-esquema_relacional.md)
+- [Comunicación con otros módulos](/bookings/docs/markdowns/06-comunicacion.md)
 
 ---
-[Acerca de](/bookings/docs/markdowns/about.markdown)
+[Acerca de](/bookings/docs/markdowns/09-about.markdown)

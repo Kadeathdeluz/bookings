@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mapa
+title: Mapa del módulo
 permalink: /mapa_modulo/
 
 --- 

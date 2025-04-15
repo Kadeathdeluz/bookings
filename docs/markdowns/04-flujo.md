@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Diagramas de flujo
-permalink: /flujo/
+permalink: /diagrama_de_flujo/
 
 --- 
 # 🔄 Diagramas de Flujo Funcionales
 
-## 🧾 Crear y Consultar Reserva
+## Crear y Consultar Reserva
 
 Este diagrama representa el proceso que sigue el sistema para la creación de una reserva, incluye verificaciones auotmatizadas y la notificación al cliente.
 
