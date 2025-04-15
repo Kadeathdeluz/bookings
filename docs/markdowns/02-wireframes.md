@@ -14,7 +14,7 @@ A continuación se presentan las pantallas clave del módulo de reservas. Estas 
 
 Vista inicial con todas las reservas registradas.
 
-![Listado de Reservas](../../images/wireframe_reservas.svg)
+![Listado de Reservas](/bookings/images/wireframe_reservas.svg)
 
 ---
 
@@ -22,7 +22,7 @@ Vista inicial con todas las reservas registradas.
 
 Formulario para crear una nueva reserva asociada a un cliente, ruta y pack.
 
-![Crear Reserva](../../images/wireframe_crear_reserva.svg)
+![Crear Reserva](/bookings/images/wireframe_crear_reserva.svg)
 
 ---
 
@@ -30,7 +30,7 @@ Formulario para crear una nueva reserva asociada a un cliente, ruta y pack.
 
 Pantalla para revisar los detalles de una reserva existente.
 
-![Consultar Reserva](../../images/wireframe_consultar_reserva.svg)
+![Consultar Reserva](/bookings/images/wireframe_consultar_reserva.svg)
 
 ---
 
@@ -38,7 +38,7 @@ Pantalla para revisar los detalles de una reserva existente.
 
 Formulario para definir una nueva ruta de viaje.
 
-![Crear Ruta](../../images/wireframe_crear_ruta.svg)
+![Crear Ruta](/bookings/images/wireframe_crear_ruta.svg)
 
 ---
 
@@ -46,7 +46,7 @@ Formulario para definir una nueva ruta de viaje.
 
 Pantalla para configurar un nuevo pack con su respectivo precio y descripción.
 
-![Crear Pack](../../images/wireframe_crear_pack.svg)
+![Crear Pack](/bookings/images/wireframe_crear_pack.svg)
 
 ---
 
@@ -54,4 +54,4 @@ Pantalla para configurar un nuevo pack con su respectivo precio y descripción.
 
 Formulario para registrar un nuevo hospedaje, incluyendo detalles como capacidad, accesibilidad y si admite mascotas.
 
-![Crear Hospedaje](../../images/wireframe_crear_hospedaje.svg)
+![Crear Hospedaje](/bookings/images/wireframe_crear_hospedaje.svg)

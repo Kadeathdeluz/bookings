@@ -10,7 +10,7 @@ permalink: /diagrama_de_flujo/
 
 Este diagrama representa el proceso que sigue el sistema para la creación de una reserva, incluye verificaciones auotmatizadas y la notificación al cliente.
 
-![Diagrama de flujo: Crear y Consultar Reserva](../../images/diagrama_flujo.svg)
+![Diagrama de flujo: Crear y Consultar Reserva](/bookings/images/diagrama_flujo.svg)
 
 ---
 

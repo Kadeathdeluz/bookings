@@ -6,7 +6,7 @@ permalink: /diagrama_E-R/
 ---
 ## 🗺️ Diagrama Relacional
 
-![Esquema relacional](../../images/diagrama_ER.svg)
+![Esquema relacional](/bookings/images/diagrama_ER.svg)
 
 ---
 # Esquema Relacional de Datos
