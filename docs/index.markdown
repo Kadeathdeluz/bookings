@@ -22,13 +22,13 @@ movilidad reducida.
 
 ## 📂 Contenido de la Documentación
 
-- [Mapa del módulo](markdowns/00-mapa_modulo.md)
-- [Dependencias con otros módulos](markdowns/01-dependencias.md)
-- [Wireframes y vistas del módulo](markdowns/02-wireframes.md)
-- [Control de accesos](markdowns/03-accesos.md)
-- [Diagrama de flujo funcionales](markdowns/04-flujo.md)
-- [Esquema relacional de datos](markdowns/05-esquema_relacional.md)
-- [Comunicación con otros módulos](markdowns/06-comunicacion.md)
+- [Mapa del módulo](/bookings/docs/markdowns/00-mapa_modulo.md)
+- [Dependencias con otros módulos](/bookings/docs/markdowns/01-dependencias.md)
+- [Wireframes y vistas del módulo](/bookings/docs/markdowns/02-wireframes.md)
+- [Control de accesos](/bookings/docs/markdowns/03-accesos.md)
+- [Diagrama de flujo funcionales](/bookings/docs/markdowns/04-flujo.md)
+- [Esquema relacional de datos](/bookings/docs/markdowns/05-esquema_relacional.md)
+- [Comunicación con otros módulos](/bookings/docs/markdowns/06-comunicacion.md)
 
 ---
-[Acerca de](markdowns/07-about.markdown)
+[Acerca de](/bookings/docs/markdowns/07-about.markdown)
