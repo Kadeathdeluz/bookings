@@ -31,4 +31,4 @@ movilidad reducida.
 - [Comunicación con otros módulos](markdowns/06-comunicacion.md)
 
 ---
-[Acerca de](markdowns/09-about.markdown)
+[Acerca de](markdowns/07-about.markdown)
