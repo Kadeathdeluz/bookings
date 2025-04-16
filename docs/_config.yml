@@ -19,11 +19,14 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Reservas (Bookings)
+baseurl: "/remoto-reservas" # the subpath of your site, e.g. /blog
+url: "https://kadeathdeluz.github.io" 
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+#theme: minima
+#plugins:
+#  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
