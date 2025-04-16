@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 ---
 # Documentación del Módulo de Reservas (bookings)
 
@@ -22,7 +22,7 @@ movilidad reducida.
 
 ## 📂 Contenido de la Documentación
 
-- [Mapa del módulo](/bookings/docs/markdowns/00-mapa_modulo.md)
+- [Mapa del módulo]({{ site.baseurl }}/docs/markdowns/00-mapa_modulo.html)
 - [Dependencias con otros módulos](/bookings/docs/markdowns/01-dependencias.md)
 - [Wireframes y vistas del módulo](/bookings/docs/markdowns/02-wireframes.md)
 - [Control de accesos](/bookings/docs/markdowns/03-accesos.md)
