@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Entidad Relacion
-permalink: /diagrama_E-R/
+title: Esquema E-R
+permalink: /diagrama_E-R
 
 ---
 ## 🗺️ Diagrama Relacional
 
-![Esquema relacional](/bookings/images/diagrama_ER.svg)
+![Esquema relacional](../images/diagrama_ER.svg)
 
 ---
 # Esquema Relacional de Datos

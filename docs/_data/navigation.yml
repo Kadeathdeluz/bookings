@@ -1,0 +1,16 @@
+- name: Mapa del módulo
+  link: /mapa_modulo
+- name: Dependencias
+  link: /dependencias
+- name: Wireframes
+  link: /wireframes
+- name: Accesos
+  link: /accesos
+- name: Flujo
+  link: /diagrama_de_flujo
+- name: Esquema E-R
+  link: /diagrama_E-R
+- name: Comunicacion con otros modulos
+  link: /comunicacion
+- name: About
+  link: /about

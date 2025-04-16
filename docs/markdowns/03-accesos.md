@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Accesos
-permalink: /accesos/
+permalink: /accesos
 
 ---
 # 🔐 Control de accesos

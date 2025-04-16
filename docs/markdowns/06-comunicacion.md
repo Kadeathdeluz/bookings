@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Comunicacion
-permalink: /comunicacion/
+permalink: /comunicacion
 
 ---
 # 🔄 Comunicación con otros módulos

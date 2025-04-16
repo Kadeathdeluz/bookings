@@ -1,5 +1,8 @@
 ---
+title: Index
 layout: page
+show_sidebar: false
+hero_height: is-fullwidth
 ---
 # Documentación del Módulo de Reservas (bookings)
 
@@ -22,13 +25,13 @@ movilidad reducida.
 
 ## 📂 Contenido de la Documentación
 
-- [Mapa del módulo]({{ site.baseurl }}/docs/markdowns/00-mapa_modulo.md)
-- [Dependencias con otros módulos](/bookings/docs/markdowns/01-dependencias.md)
-- [Wireframes y vistas del módulo](/bookings/docs/markdowns/02-wireframes.md)
-- [Control de accesos](/bookings/docs/markdowns/03-accesos.md)
-- [Diagrama de flujo funcionales](/bookings/docs/markdowns/04-flujo.md)
-- [Esquema relacional de datos](/bookings/docs/markdowns/05-esquema_relacional.md)
-- [Comunicación con otros módulos](/bookings/docs/markdowns/06-comunicacion.md)
+- [Mapa del módulo]({{ site.baseurl }}/mapa_modulo)
+- [Dependencias con otros módulos]({{ site.baseurl }}/dependencias)
+- [Wireframes y vistas del módulo]({{ site.baseurl }}/wireframes)
+- [Control de accesos]({{ site.baseurl }}/accesos)
+- [Diagrama de flujo funcionales]({{ site.baseurl }}/flujo)
+- [Esquema relacional de datos]({{ site.baseurl }}/diagrama_E-R)
+- [Comunicación con otros módulos]({{ site.baseurl }}/comunicacion)
 
 ---
-[Acerca de](/bookings/docs/markdowns/07-about.markdown)
+[Acerca de]({{ site.baseurl }}/about)

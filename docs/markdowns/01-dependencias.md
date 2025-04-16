@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Dependencias
-permalink: /dependencias/
+permalink: /dependencias
 
 ---
 
