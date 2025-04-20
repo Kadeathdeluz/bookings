@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "bookings",
+    'name': "Reservas",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Permite gestionar las reservas (crear, consultar, modificar).
+        """,
 
     'description': """
-        Long description of module's purpose
+         El módulo permite automatizar la reserva de hospedajes para un cliente, para una ruta y con un pack contratado.
+        - Dados los datos del cliente, gestiona la reserva de los hospedajes, teniendo en cuenta el tipo de pack elegido y la disponibilidad de los hospedajes.
+        - Permite crear reservas asociadas a un cliente, una ruta y un pack.
+        - Lista todas las rutas de todos los clientes.
+        - Tiene en cuenta también aspectos como que se viaje con animales o con personas con movilidad reducida.
+        - En caso de realizar las reservas correctamente, envía una notificación con las reservas realizadas al cliente antes de iniciar la ruta.
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Roldán Sanchis Martínez",
+    'website': "https://github.com/Kadeathdeluz/remoto_reservas_roldan",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -22,9 +27,12 @@
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
+    
+    'application': True,
+
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
