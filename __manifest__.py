@@ -2,9 +2,7 @@
 {
     'name': "Reservas",
 
-    'summary': """
-        Permite gestionar las reservas (crear, consultar, modificar).
-        """,
+    'summary': "Permite gestionar las reservas (crear, consultar, modificar).",
 
     'description': """
          El módulo permite automatizar la reserva de hospedajes para un cliente, para una ruta y con un pack contratado.

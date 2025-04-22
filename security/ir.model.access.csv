@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_bookings_bookings,bookings.bookings,model_bookings_bookings,base.group_user,1,1,1,1
+access_bookings_route,bookings.route,model_bookings_route,base.group_user,1,1,1,1
+access_bookings_landmark_by_route,bookings.landmark_by_route,model_bookings_landmark_by_route,base.group_user,1,1,1,1
+access_bookings_landmark,bookings.landmark,model_bookings_landmark,base.group_user,1,1,1,1
