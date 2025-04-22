@@ -9,6 +9,15 @@ class Item(models.Model):
     _name = 'bookings.item'
     _description = 'Represents an item of the Camino de Santiago experience'
 
-    # Table fields
+    # -- Table fields --
+    # PK: item_id
+    # item_id = fields.Char() <-- Not needed
+
+    # Other table fields
     name = fields.Char()
-    descripcion = fields.Text()
+    price = fields.Float()
+    description = fields.Text()
+
+    # -- Relations --
+    # One2many with item_by_pack
+    related_packs_ids = fields.One2many('bookings.item_by_pack', 'item_id', string= ' Items by Pack')

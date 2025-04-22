@@ -9,6 +9,23 @@ class Lodgin(models.Model):
     _name = 'bookings.lodgin'
     _description = 'Represents a lodging that can be booked following a route of the Camino de Santiago with a concrete pack'
 
-    # Table fields
+    # -- Table fields --
+    # PK: lodgin_id
+    # lodgin_id = fields.Char() <-- Not needed
+
+    # Other table fields
     name = fields.Char()
-    descripcion = fields.Text()
+    capacity = fields.Integer()
+    pets_allowed = fields.Boolean()
+    reduced_mobility = fields.Boolean()
+    phone = fields.Char()
+    email = fields.Char()
+    description = fields.Text()
+
+    # -- Relations --
+    # One2many with lodgin_by_route
+    related_routes_ids = fields.One2many('bookings.lodgin_by_route', 'lodgin_id', string= ' Lodgins by Route')
+    # One2many with lodgin_by_pack
+    related_packs_ids = fields.One2many('bookings.lodgin_by_pack', 'lodgin_id', string= ' Lodgins by Pack')
+    # One2many with lodgin_by_journey
+    related_journeys_ids = fields.One2many('bookings.lodgin_by_journey', 'lodgin_id', string= ' Lodgins by Journey')
