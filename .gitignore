@@ -1,0 +1,2 @@
+# Evitar cargar cada vez los __pycache__
+*.pyc
