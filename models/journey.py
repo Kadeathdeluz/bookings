@@ -16,6 +16,12 @@ class Journey(models.Model):
     name = fields.Char()
     with_pet = fields.Boolean()
     movility_reduced = fields.Boolean()
+    # A selection of available states
+    state = fields.Selection([
+        ('pending', 'Pending'),
+        ('finished', 'Finished'),
+        ('progress', 'In Progress')
+    ])
 
     # -- Relations --
     # FKs: client_id, route_id, pack_id and the date
