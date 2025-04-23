@@ -1,8 +1,8 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="bookings.list">
+
+    <record model="ir.ui.view" id="bookings.bookings_list">
       <field name="name">bookings list</field>
       <field name="model">bookings.bookings</field>
       <field name="arch" type="xml">
@@ -13,13 +13,34 @@
         </tree>
       </field>
     </record>
--->
+
+    <!-- explicit list view of journeys -->
+    <record model="ir.ui.view" id="bookings.journeys_list">
+      <field name="name">Journeys List</field>
+      <field name="model">bookings.journey</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="client_id"/>
+          <field name="route_id"/>
+          <field name="pack_id"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="bookings.action_window">
-      <field name="name">Nombre de la vista</field>
+      <field name="name">Models</field>
       <field name="res_model">bookings.bookings</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bookings.action_journey">
+      <field name="name">Viajes</field>
+      <field name="res_model">bookings.journey</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -42,19 +63,24 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Nombre del módulo en el menú de apps" id="bookings.menu_root"/>
+    <menuitem name="Reservas" id="bookings.menu_root"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Nombre del menú" id="bookings.menu_1" parent="bookings.menu_root"/>
-<!--    <menuitem name="Menu 2" id="bookings.menu_2" parent="bookings.menu_root"/>
--->
+    <menuitem name="Menu 1" id="bookings.menu_1" parent="bookings.menu_root"/>
+    <menuitem name="Menu 2" id="bookings.menu_2" parent="bookings.menu_root"/>
+    <menuitem name="Menu Viajes" id="bookings.menu_viajes" parent="bookings.menu_root"/>
+    
     <!-- actions -->
 
-    <menuitem name="Nombre del item del menú" id="bookings.menu_1_list" parent="bookings.menu_1"
+    <menuitem name="Listar Viajes" id="bookings.menu_viajes_list" parent="bookings.menu_viajes"
+              action="bookings.action_journey"/>
+    <menuitem name="Listar Hospedajes" id="bookings.menu_hospedajes_list" parent="bookings.menu_1"
               action="bookings.action_window"/>
-<!--    <menuitem name="Server to list" id="bookings" parent="bookings.menu_2"
-              action="bookings.action_server"/>
--->
+    <menuitem name="Listar Rutas" id="bookings.menu_bookings_list" parent="bookings.menu_2"
+              action="bookings.action_window"/>
+   <!-- <menuitem name="Server to list" id="bookings" parent="bookings.menu_2"
+              action="bookings.action_server"/> -->
+
   </data>
 </odoo>
