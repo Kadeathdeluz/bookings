@@ -33,6 +33,5 @@ class Landmark(models.Model):
     # -- Constraints --
     # pointX and pointY fields must be unique (together)
     # _sql_constraints = [
-    #     ('pointX_pointY_UK,', 'UNIQUE(pointX, pointY)', 'Combination of Long and Lat must be unique (PK)')
+    #     ('pointX_pointY_UK,', 'unique(pointX, pointY)', 'Combination of Long and Lat must be unique (PK)')
     # ]
-    

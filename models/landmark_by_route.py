@@ -23,5 +23,6 @@ class LandmarkByRoute(models.Model):
     # -- Constraints --
     # order_in_route must be unique for each route_id
     # _sql_constraints = [
-    #     ('order_in_route_UK', 'UNIQUE(route_id, order_in_route)', 'Order in route must be unique for each route')
+    #     ('order_in_route_UK', 'unique(route_id, order_in_route)', 'Order in route must be unique for each route')
+    # ???
     # ]

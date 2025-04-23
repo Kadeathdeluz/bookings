@@ -28,7 +28,7 @@ class Journey(models.Model):
 
     # -- Constraints --
     # client_id, route_id, pack_id and date must be unique together
-    _sql_constraints = [
-        ('unique_journey_by_date', 'unique(client_id, route_id, pack_id, date)', 'The combination of client, route pack and date must be unique.')
-    ]
+    # _sql_constraints = [
+    #     ('unique_journey_by_date', 'unique(client_id, route_id, pack_id, date)', 'The combination of client, route pack and date must be unique.')
+    # ]
 

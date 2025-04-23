@@ -28,9 +28,3 @@ class Route(models.Model):
     related_lodgins_ids = fields.One2many(
         'bookings.lodgin_by_route', 'route_id', string= ' Lodgins by Route'
         )
-
-    # -- Constraints --
-    # route_id must be unique
-    # _sql_constraints = [
-    #     ('route_id_uk', 'unique(route_id)', 'Route ID must be unique (PK)')
-    # ]

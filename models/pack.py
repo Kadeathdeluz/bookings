@@ -10,7 +10,7 @@ class Pack(models.Model):
     _description = 'Represents a pack of the Camino de Santiago experience with items and/or services included'
 
     # -- Table fields --
-    # PK: pack_id1
+    # PK: pack_id
     # pack_id = fields.Char() <-- Not needed
 
     # Other table fields
