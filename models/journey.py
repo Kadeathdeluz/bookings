@@ -38,3 +38,4 @@ class Journey(models.Model):
     #     ('unique_journey_by_date', 'unique(client_id, route_id, pack_id, date)', 'The combination of client, route pack and date must be unique.')
     # ]
 
+    # -- Functions --
