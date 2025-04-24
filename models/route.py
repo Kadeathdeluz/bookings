@@ -28,3 +28,8 @@ class Route(models.Model):
     related_lodgins_ids = fields.One2many(
         'bookings.lodgin_by_route', 'route_id', string= ' Lodgins by Route'
         )
+    
+    # -- Functions --
+    # Returns the name of the Route
+    def name_get(self):
+        return [(rec.id, rec.name) for rec in self]

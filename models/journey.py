@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Journey(models.Model):
     """
@@ -12,16 +12,24 @@ class Journey(models.Model):
     # -- Table fields --
     
     # Other table fields
-    date = fields.Date()
     name = fields.Char()
+    date = fields.Date()
     with_pet = fields.Boolean()
-    movility_reduced = fields.Boolean()
+    mobility_reduced = fields.Boolean()
     # A selection of available states
     state = fields.Selection([
         ('pending', 'Pending'),
         ('finished', 'Finished'),
         ('progress', 'In Progress')
     ])
+
+    # -- Calculated fields --
+    # Number of lodgins by journey
+    lodgins_count = fields.Integer(
+        string=' Lodgins Count', 
+        compute= '_compute_lodgins_count',
+        store= True
+        )
 
     # -- Relations --
     # FKs: client_id, route_id, pack_id and the date
@@ -39,3 +47,8 @@ class Journey(models.Model):
     # ]
 
     # -- Functions --
+    # Returns the number of lodgins related to a journey
+    @api.depends('related_lodgins_ids')
+    def _compute_lodgins_count(self):
+        for rec in self:
+            rec.lodgins_count = len(rec.related_lodgins_ids)

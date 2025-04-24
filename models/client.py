@@ -16,3 +16,7 @@ class Client(models.Model):
     phone = fields.Char()
     email = fields.Char()
     born_date = fields.Date()
+
+    # -- Relations --
+    # One2many with journey
+    related_journeys_ids = fields.One2many('bookings.journey', 'id', string= ' Journeys by Client')

@@ -13,4 +13,4 @@ class LodginByJourney(models.Model):
     # FK: lodgin_id
     lodgin_id = fields.Many2one('bookings.lodgin')
     # FK: journey_id
-    journey_id = fields.Many2one('bookings.journey_id')
+    journey_id = fields.Many2one('bookings.journey')
