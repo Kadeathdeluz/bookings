@@ -1,8 +1,8 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
+    <!-- *** Explicit list view definition *** -->
 
-    <record model="ir.ui.view" id="bookings.bookings_list">
+    <!-- <record model="ir.ui.view" id="bookings.bookings_list">
       <field name="name">bookings list</field>
       <field name="model">bookings.bookings</field>
       <field name="arch" type="xml">
@@ -12,75 +12,106 @@
           <field name="value2"/>
         </tree>
       </field>
-    </record>
+    </record> -->
 
-    <!-- explicit list view of journeys -->
+    <!-- Journeys -->
     <record model="ir.ui.view" id="bookings.journeys_list">
       <field name="name">Journeys List</field>
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
-        <tree>
+        <!-- Add some colors to the different states of the Journey -->
+        <tree colors="green:state=='finished', blue:state=='pending', yellow:state=='in_progress'">
           <field name="id"/>
           <field name="client_id"/>
           <field name="route_id"/>
           <field name="pack_id"/>
-          <field name="state"/>
+          <field name="state" widget="statusbar"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Routes -->
+    <record model="ir.ui.view" id="bookings.routes_list">
+      <field name="name">Routes List</field>
+      <field name="model">bookings.routes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="distance"/>
+          <field name="url_maps"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Packs -->
+    <record model="ir.ui.view" id="bookings.packs_list">
+      <field name="name">Packs List</field>
+      <field name="model">bookings.packs</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="distance"/>
+          <field name="url_maps"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Lodgins -->
+    <record model="ir.ui.view" id="bookings.lodgins_list">
+      <field name="name">Lodgins List</field>
+      <field name="model">bookings.lodgins</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="distance"/>
+          <field name="url_maps"/>
+          <field name="description"/>
         </tree>
       </field>
     </record>
 
 
-    <!-- actions opening views on models -->
+    <!-- *** Actions opening views on models *** -->
 
-    <record model="ir.actions.act_window" id="bookings.action_window">
+    <!-- <record model="ir.actions.act_window" id="bookings.action_window">
       <field name="name">Models</field>
       <field name="res_model">bookings.bookings</field>
       <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
+    <!-- journeys -->
     <record model="ir.actions.act_window" id="bookings.action_journey">
       <field name="name">Viajes</field>
       <field name="res_model">bookings.journey</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="bookings.action_server">
-      <field name="name">bookings server</field>
-      <field name="model_id" ref="model_bookings_bookings"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
+    <!-- *** Top menu item *** -->
 
     <menuitem name="Reservas" id="bookings.menu_root"/>
 
-    <!-- menu categories -->
+    <!-- *** Menu categories *** -->
 
-    <menuitem name="Menu 1" id="bookings.menu_1" parent="bookings.menu_root"/>
-    <menuitem name="Menu 2" id="bookings.menu_2" parent="bookings.menu_root"/>
-    <menuitem name="Menu Viajes" id="bookings.menu_viajes" parent="bookings.menu_root"/>
+    <menuitem name="Viajes" id="bookings.menu_journeys" parent="bookings.menu_root"/>
+    <menuitem name="Rutas" id="bookings.menu_routes" parent="bookings.menu_root"/>
+    <menuitem name="Packs" id="bookings.menu_packs" parent="bookings.menu_root"/>
+    <menuitem name="Hospedajes" id="bookings.menu_lodgins" parent="bookings.menu_root"/>
     
-    <!-- actions -->
+    <!-- *** Actions *** -->
 
-    <menuitem name="Listar Viajes" id="bookings.menu_viajes_list" parent="bookings.menu_viajes"
+    <menuitem name="Listar Viajes" id="bookings.menu_viajes_list" parent="bookings.menu_journeys"
               action="bookings.action_journey"/>
-    <menuitem name="Listar Hospedajes" id="bookings.menu_hospedajes_list" parent="bookings.menu_1"
-              action="bookings.action_window"/>
-    <menuitem name="Listar Rutas" id="bookings.menu_bookings_list" parent="bookings.menu_2"
-              action="bookings.action_window"/>
-   <!-- <menuitem name="Server to list" id="bookings" parent="bookings.menu_2"
-              action="bookings.action_server"/> -->
+    <menuitem name="Listar Rutas" id="bookings.menu_routes_list" parent="bookings.menu_routes"
+              action="bookings.action_journey"/>
+    <menuitem name="Listar Packs" id="bookings.menu_packs_list" parent="bookings.menu_packs"
+              action="bookings.action_journey"/>
+    <menuitem name="Listar Hospedajes" id="bookings.menu_lodgins_list" parent="bookings.menu_lodgins"
+              action="bookings.action_journey"/>
 
   </data>
 </odoo>
