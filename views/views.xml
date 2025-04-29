@@ -16,10 +16,9 @@
 
     <!-- Journeys -->
     <record model="ir.ui.view" id="bookings.journey_list">
-      <field name="name">Journeys List</field>
+      <field name="name">bookings.journey.list</field>
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
-        <!-- Add some colors to the different states of the Journey -->
         <tree>
           <field name="id"/>
           <field name="client_id"/>
@@ -27,43 +26,19 @@
           <!-- Calculated field: lodgins_count-->
           <field name="lodgins_count"/>
           <field name="pack_id"/>
-          <field name="state" widget="statusbar"/>
-        </tree>
-      </field>
-    </record>
-
-    <!-- Routes -->
-    <record model="ir.ui.view" id="bookings.route_list">
-      <field name="name">Routes List</field>
-      <field name="model">bookings.route</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="id"/>
-          <field name="name"/>
-          <field name="distance"/>
-          <field name="url_maps"/>
-          <field name="description"/>
-        </tree>
-      </field>
-    </record>
-
-    <!-- Packs -->
-    <record model="ir.ui.view" id="bookings.pack_list">
-      <field name="name">Packs List</field>
-      <field name="model">bookings.pack</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="id"/>
-          <field name="name"/>
-          <field name="price"/>
-          <field name="description"/>
+          <!-- Add some colors to the different states of the Journey, and a badge looking -->
+          <field name="state" 
+            decoration-warning="state == 'pending'" 
+            decoration-success="state == 'finished'" 
+            decoration-primary="state == 'progress'"
+            widget="badge"/>
         </tree>
       </field>
     </record>
 
     <!-- Lodgins -->
     <record model="ir.ui.view" id="bookings.lodgin_list">
-      <field name="name">Lodgins List</field>
+      <field name="name">bokoings.lodgin.list</field>
       <field name="model">bookings.lodgin</field>
       <field name="arch" type="xml">
         <tree>
@@ -79,6 +54,138 @@
       </field>
     </record>
 
+    <!-- Routes -->
+    <record model="ir.ui.view" id="bookings.route_list">
+      <field name="name">bokoings.route.list</field>
+      <field name="model">bookings.route</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="distance"/>
+          <field name="url_maps"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Packs -->
+    <record model="ir.ui.view" id="bookings.pack_list">
+      <field name="name">bokoings.pack.list</field>
+      <field name="model">bookings.pack</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="price"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Client -->
+    <record model="ir.ui.view" id="bookings.client_list">
+      <field name="name">bokoings.client.list</field>
+      <field name="model">bookings.client</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="phone"/>
+          <field name="email"/>
+          <field name="born_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Landmark -->
+    <record model="ir.ui.view" id="bookings.landmark_list">
+      <field name="name">bokoings.landmark.list</field>
+      <field name="model">bookings.landmark</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="pointX"/>
+          <field name="pointY"/>
+          <field name="type"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Item -->
+    <record model="ir.ui.view" id="bookings.item_list">
+      <field name="name">bokoings.item.list</field>
+      <field name="model">bookings.item</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="price"/>
+          <field name="description"/>
+          <field name="pack_ids" widget="many2many_tags"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- ** Explicit form view definitions -->
+
+    <!-- Journeys -->
+    <record id="bookings.journey_form_creation" model="ir.ui.view">
+      <field name="name">bookings.journey.form</field>
+      <field name="model">bookings.journey</field>
+      <field name="arch" type="xml">
+        <form string="Journey">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="client_id"/>
+                <field name="route_id"/>
+                <field name="pack_id"/>
+                <field name="state"/>
+              </group>
+              <group>
+                <field name="with_pet"/>
+                <field name="mobility_reduced"/>
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Hospedajes">
+                <!-- Readonly because we want it to be automatic -->
+                <field name="related_lodgins_ids" readonly="1">
+                  <tree>
+                    <field name="lodgin_id"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Items -->
+    <record model="ir.ui.view" id="bookings.item_form">
+      <field name="name">bookings.item.form</field>
+      <field name="model">bookings.item</field>
+      <field name="arch" type="xml">
+        <form string="Item">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="price"/>
+              <field name="description"/>
+              <!-- Related packs -->
+              <field name="pack_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- *** Actions opening views on models *** -->
 
@@ -116,6 +223,27 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Client -->
+    <record model="ir.actions.act_window" id="bookings.action_client">
+      <field name="name">Clients</field>
+      <field name="res_model">bookings.client</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Landmark -->
+    <record model="ir.actions.act_window" id="bookings.action_landmark">
+      <field name="name">Landmarks</field>
+      <field name="res_model">bookings.landmark</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Item -->
+    <record model="ir.actions.act_window" id="bookings.action_item">
+      <field name="name">Items</field>
+      <field name="res_model">bookings.item</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- *** Top menu item *** -->
 
     <menuitem name="Bookings" id="bookings.menu_root"/>
@@ -123,24 +251,36 @@
     <!-- *** Menu categories *** -->
 
     <menuitem name="Journeys" id="bookings.menu_journey" parent="bookings.menu_root"/>
-    <menuitem name="Routes" id="bookings.menu_route" parent="bookings.menu_root"/>
-    <menuitem name="Packs" id="bookings.menu_pack" parent="bookings.menu_root"/>
-    <menuitem name="Lodgins" id="bookings.menu_lodgin" parent="bookings.menu_root"/>
+
+    <menuitem name="Stock" id="bookings.menu_stock" parent="bookings.menu_root"/>
+
+    <menuitem name="Contacts" id="bookings.menu_contacts" parent="bookings.menu_root"/>
     
     <!-- *** Actions *** -->
 
     <!-- Journeys -->
-    <menuitem name="List Journeys" id="bookings.menu_viajes_list" parent="bookings.menu_journey"
+    <menuitem name="Journeys" id="bookings.menu_viajes_list" parent="bookings.menu_journey"
               action="bookings.action_journey"/>
     <!-- Routes -->
-    <menuitem name="List Routes" id="bookings.menu_routes_list" parent="bookings.menu_route"
+    <menuitem name="Routes" id="bookings.menu_routes_list" parent="bookings.menu_journey"
               action="bookings.action_route"/>
+    <!-- Landmarks -->
+    <menuitem name="Landmarks" id="bookings.menu_landmark_list" parent="bookings.menu_journey"
+              action="bookings.action_landmark"/>
+    
     <!-- Packs -->
-    <menuitem name="List Packs" id="bookings.menu_packs_list" parent="bookings.menu_pack"
+    <menuitem name="Packs" id="bookings.menu_packs_list" parent="bookings.menu_stock"
               action="bookings.action_pack"/>
+    <!-- Items -->
+    <menuitem name="Items" id="bookings.menu_item_list" parent="bookings.menu_stock"
+              action="bookings.action_item"/>
+
     <!-- Lodgins -->
-    <menuitem name="List Lodgins" id="bookings.menu_lodgins_list" parent="bookings.menu_lodgin"
+    <menuitem name="Lodgins" id="bookings.menu_lodgins_list" parent="bookings.menu_contacts"
               action="bookings.action_lodgin"/>
+    <!-- Clients -->
+    <menuitem name="Clients" id="bookings.menu_client_list" parent="bookings.menu_contacts"
+              action="bookings.action_client"/>
 
   </data>
 </odoo>

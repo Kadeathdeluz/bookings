@@ -10,10 +10,6 @@ class Lodgin(models.Model):
     _description = 'Represents a lodging that can be booked following a route of the Camino de Santiago with a concrete pack'
 
     # -- Table fields --
-    # PK: lodgin_id
-    # lodgin_id = fields.Char() <-- Not needed
-
-    # Other table fields
     name = fields.Char()
     capacity = fields.Integer()
     pets_allowed = fields.Boolean()

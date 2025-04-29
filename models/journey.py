@@ -10,8 +10,6 @@ class Journey(models.Model):
     _description = 'Represents a journey of the Camino de Santiago for a client, related to a route, and a pack'
 
     # -- Table fields --
-    
-    # Other table fields
     name = fields.Char()
     date = fields.Date()
     with_pet = fields.Boolean()
@@ -21,7 +19,7 @@ class Journey(models.Model):
         ('pending', 'Pending'),
         ('finished', 'Finished'),
         ('progress', 'In Progress')
-    ])
+    ], default='pending')
 
     # -- Calculated fields --
     # Number of lodgins by journey

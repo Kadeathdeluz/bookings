@@ -16,9 +16,9 @@ class LandmarkByRoute(models.Model):
 
     # -- Relations --
     # FK: route_id (not the route_id of the route table, but the internal id of the route table)
-    route_id = fields.Many2one('bookings.route', string='Route', required= True, ondelete= 'cascade')
+    route_id = fields.Many2one('bookings.route', string='Route', ondelete= 'cascade')
     # FK: landmark_id (references internal id of landmark table)
-    landmark_id = fields.Many2one('bookings.landmark', string='Landmark', required= True, ondelete= 'cascade')
+    landmark_id = fields.Many2one('bookings.landmark', string='Landmark', ondelete= 'cascade')
     
     # -- Constraints --
     # order_in_route must be unique for each route_id

@@ -9,10 +9,6 @@ class ItemByPack(models.Model):
     _name = 'bookings.item_by_pack'
     _description = 'Represents the relation between an item and a pack'
 
-    # -- Table fields --
-    # Other table fields
-    # quantity = fields.Integer() <-- Can be included as an attribute of the relation
-
     # -- Relations --
     # Many2one with item
     item_id = fields.Many2one('bookings.item', string='Item')

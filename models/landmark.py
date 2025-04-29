@@ -10,11 +10,9 @@ class Landmark(models.Model):
     _description = 'Represents a landmark of a route in the Camino de Santiago'
 
     # -- Table fields --
-    # PK: pointX, pointY
-    pointX = fields.Float(string='Longitude', required=True)
-    pointY = fields.Float(string='Latitude', required=True)
-    
-    # Other table fields
+    name = fields.Char(string='Name')
+    pointX = fields.Char(string='Longitude', required=True)
+    pointY = fields.Char(string='Latitude', required=True)
     # A selection of landmark types
     type = fields.Selection(selection=[
         ('cultural', 'Cultural'),
@@ -33,5 +31,5 @@ class Landmark(models.Model):
     # -- Constraints --
     # pointX and pointY fields must be unique (together)
     # _sql_constraints = [
-    #     ('pointX_pointY_UK,', 'unique(pointX, pointY)', 'Combination of Long and Lat must be unique (PK)')
+    #     ('pointX_pointY_UK', 'unique(pointX, pointY)', 'Combination of Long and Lat must be unique.')
     # ]

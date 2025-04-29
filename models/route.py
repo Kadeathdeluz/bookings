@@ -10,10 +10,6 @@ class Route(models.Model):
     _description = 'Represents a route of the Camino de Santiago'
 
     # -- Table fields --
-    # PK: route_id
-    # route_id = fields.Char() <-- Not needed
-
-    # Other table fields
     name = fields.Char()
     distance = fields.Float()
     url_maps = fields.Char()
