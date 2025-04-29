@@ -20,17 +20,20 @@
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
         <tree>
-          <!--<field name="id"/>-->
           <field name="client_id"/>
           <field name="route_id"/>
           <!-- Calculated field: lodgins_count-->
           <field name="lodgins_count"/>
           <field name="pack_id"/>
-          <!-- Add some colors to the different states of the Journey, and a badge looking -->
+          <!-- Add some colors to the different status of the Journey, and a badge looking. 
+          Decoration Colors:
+          Warning = yellow
+          Success = green
+          Primary = blue -->
           <field name="state" 
             decoration-warning="state == 'pending'" 
-            decoration-success="state == 'finished'" 
-            decoration-primary="state == 'progress'"
+            decoration-success="state == 'finished'"
+            decoration-primary="state == 'progress'" 
             widget="badge"/>
         </tree>
       </field>
@@ -42,7 +45,6 @@
       <field name="model">bookings.lodgin</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="name"/>
           <field name="capacity"/>
           <field name="pets_allowed"/>
@@ -60,11 +62,10 @@
       <field name="model">bookings.route</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="name"/>
-          <field name="distance"/>
-          <field name="url_maps"/>
           <field name="description"/>
+          <field name="distance"/>
+          <!--<field name="url_maps"/>-->
         </tree>
       </field>
     </record>
@@ -75,7 +76,6 @@
       <field name="model">bookings.pack</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="name"/>
           <field name="price"/>
           <field name="description"/>
@@ -89,7 +89,6 @@
       <field name="model">bookings.client</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="name"/>
           <field name="phone"/>
           <field name="email"/>
@@ -104,7 +103,6 @@
       <field name="model">bookings.landmark</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="pointX"/>
           <field name="pointY"/>
           <field name="type"/>
@@ -119,7 +117,6 @@
       <field name="model">bookings.item</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
           <field name="name"/>
           <field name="price"/>
           <field name="description"/>
@@ -131,14 +128,14 @@
     <!-- ** Explicit form view definitions -->
 
     <!-- Journeys -->
-    <record id="bookings.journey_form_creation" model="ir.ui.view">
+    <record id="bookings.journey_form" model="ir.ui.view">
       <field name="name">bookings.journey.form</field>
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
         <form string="Journey">
           <sheet>
-            <group>
-              <group>
+            <group string="Journey">
+              <group string="Journey info">
                 <field name="name"/>
                 <field name="date"/>
                 <field name="client_id"/>
@@ -146,7 +143,7 @@
                 <field name="pack_id"/>
                 <field name="state"/>
               </group>
-              <group string= "Requiremnts">
+              <group string= "Requirements">
                 <field name="with_pet"/>
                 <field name="mobility_reduced"/>
               </group>
@@ -154,8 +151,8 @@
 
             <notebook>
               <page string="Hospedajes">
-                <!-- Readonly because we want it to be automatic -->
-                <field name="related_lodgins_ids" readonly="1">
+                <!-- Readonly because we want it to be automatic readonly="1"-->
+                <field name="related_lodgins_ids">
                   <tree>
                     <field name="lodgin_id"/>
                   </tree>
@@ -186,7 +183,82 @@
         </form>
       </field>
     </record>
+    <!-- Routes -->
+    <record id="bookings.route_form" model="ir.ui.view">
+      <field name="name">bookings.route.form</field>
+      <field name="model">bookings.route</field>
+      <field name="arch" type="xml">
+        <form string="Route">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="distance"/>
+              <field name="url_maps"/>
+              <field name="description"/>
+            </group>
 
+            <notebook>
+              <page string="Landmarks">
+                <field name="related_landmarks_ids">
+                  <tree editable="bottom">
+                    <field name="landmark_id"/>
+                    <field name="order_in_route"/>
+                  </tree>
+                  <form>
+                    <group>
+                      <field name="landmark_id"/>
+                      <field name="order_in_route"/>
+                    </group>
+                  </form>
+                </field>
+              </page>
+
+              <page string="Lodgins">
+                <field name="related_lodgins_ids" widget="many2many_tags" string="Hospedajes relacionados"
+                   options="{'no_create': True}"/>
+              </page>
+            </notebook>
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Landmarks -->
+    <record id="bookings.landmark_form" model="ir.ui.view">
+      <field name="name">bookings.landmark.form</field>
+      <field name="model">bookings.landmark</field>
+      <field name="arch" type="xml">
+        <form string="Landmark">
+          <sheet>
+            <group string="Landmark info">
+              <field name="name"/>
+              <field name="pointX"/>
+              <field name="pointY"/>
+              <field name="type" widget="badge"/>
+              <field name="description"/>
+            </group>
+
+            <notebook>
+              <page string="Included in">
+                <field name="related_routes_ids">
+                  <tree editable="bottom">
+                    <field name="route_id"/>
+                    <field name="order_in_route"/>
+                  </tree>
+                  <form>
+                    <group string="Route">
+                      <field name="route_id"/>
+                      <field name="order_in_route"/>
+                    </group>
+                  </form>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
     <!-- *** Actions opening views on models *** -->
 
     <!-- <record model="ir.actions.act_window" id="bookings.action_window">

@@ -12,18 +12,18 @@ class Client(models.Model):
 
     # Table fields
     # PK: dni
-    #dni = fields.Char()
-    name = fields.Char()
-    phone = fields.Char()
-    email = fields.Char()
-    born_date = fields.Date()
+    #dni = fields.Char(string='DNI', required=True)
+    name = fields.Char(string='Name', required=True)
+    phone = fields.Char(string='Phone', required=True)
+    email = fields.Char(string='Email', required=True)
+    born_date = fields.Date(string='Born date', required=True)
 
     # -- Relations --
     # One2many with journey
     related_journeys_ids = fields.One2many('bookings.journey', 'id', string= ' Journeys by Client')
 
     # -- Constraints --
-    # name and born_date fields must be unique (together)
+    # dni field must be unique
     # _sql_constraints = [
-    #     ('name_born_UK', 'unique(name, born_date)', 'Combination of Name and Born Date must be unique.')
+    #     ('dni_UK', 'unique(dni)', 'DNI must be unique.')
     # ]

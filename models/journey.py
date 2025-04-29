@@ -10,11 +10,11 @@ class Journey(models.Model):
     _description = 'Represents a journey of the Camino de Santiago for a client, related to a route, and a pack'
 
     # -- Table fields --
-    name = fields.Char()
-    date = fields.Date()
-    with_pet = fields.Boolean()
-    mobility_reduced = fields.Boolean()
-    # A selection of available states
+    name = fields.Char(string='Name', required=True)
+    date = fields.Date(string='Journey Date', required=True)
+    with_pet = fields.Boolean(string='With Pet')
+    mobility_reduced = fields.Boolean(string='Reduced Mobility')
+    # A selection of available status
     state = fields.Selection([
         ('pending', 'Pending'),
         ('finished', 'Finished'),
@@ -24,7 +24,7 @@ class Journey(models.Model):
     # -- Calculated fields --
     # Number of lodgins by journey
     lodgins_count = fields.Integer(
-        string=' Lodgins Count', 
+        string=' Lodgins (count)', 
         compute= '_compute_lodgins_count',
         store= True
         )

@@ -10,14 +10,11 @@ class Item(models.Model):
     _description = 'Represents an item of the Camino de Santiago experience'
 
     # -- Table fields --
-    name = fields.Char()
-    price = fields.Float()
-    description = fields.Text()
+    name = fields.Char(string='Name', required=True)
+    price = fields.Float(string='Price', required=True)
+    description = fields.Text(string='Description')
 
     # -- Relations --
-    # One2many with item_by_pack
-    # related_packs_ids = fields.One2many('bookings.item_by_pack', 'item_id', string= ' Items by Pack')
-
     # Packs that include this item
     related_pack_ids = fields.Many2many(
         comodel_name='bookings.pack',                      # Related model

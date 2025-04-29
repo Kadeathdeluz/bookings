@@ -10,24 +10,31 @@ class Pack(models.Model):
     _description = 'Represents a pack of the Camino de Santiago experience with items and/or services included'
 
     # -- Table fields --
-    name = fields.Char()
-    price = fields.Float()
-    description = fields.Text()
+    name = fields.Char(string='Name', required=True)
+    price = fields.Float(string='Price', required=True)
+    description = fields.Text(string='Description')
 
     # -- Relations --
-    # One2many with lodgin_by_pack
-    related_lodgins_ids = fields.One2many('bookings.lodgin_by_pack', 'pack_id', string= ' Lodgins by Pack')
-    # One2many with item_by_pack
-    #related_items_ids = fields.One2many('bookings.item_by_pack', 'pack_id', string= ' Items by Pack')
-    
     # Related items to the current pack
     related_items_ids = fields.Many2many(
         comodel_name='bookings.item',                      # Related model
-        relation='bookings_item_by_pack',                  # Actual name of the many2many table
+        relation='bookings_item_by_pack',                           # Actual name of the many2many table
         column1='pack_id',                                 # Column towards this model
         column2='item_id',                                 # Column towards the destination model
-        string='Includes'                               # Name of the field in the view
+        string='Includes'                                  # Name of the field in the view
     )
+    # One2many with lodgin_by_pack
+    # related_lodgins_ids = fields.One2many('bookings.lodgin_by_pack', 'pack_id', string= ' Lodgins by Pack')
+
+    # Related lodgins to the current pack
+    related_lodgins_ids = fields.Many2many(
+        comodel_name='bookings.lodgin',                      # Related model
+        relation='bookings_lodgin_by_pack',                           # Actual name of the many2many table
+        column1='pack_id',                                   # Column towards this model
+        column2='lodgin_id',                                 # Column towards the destination model
+        string='Asociated to'                                # Name of the field in the view
+    )
+    
     # -- Functions --
     # Returns the name of the Pack
     def name_get(self):
