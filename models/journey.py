@@ -19,7 +19,7 @@ class Journey(models.Model):
         ('pending', 'Pending'),
         ('finished', 'Finished'),
         ('progress', 'In Progress')
-    ], default='pending')
+    ], string= 'Status', default='pending')
 
     # -- Calculated fields --
     # Number of lodgins by journey

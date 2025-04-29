@@ -10,6 +10,7 @@ class Lodgin(models.Model):
     _description = 'Represents a lodging that can be booked following a route of the Camino de Santiago with a concrete pack'
 
     # -- Table fields --
+    #cif = fields.Char()
     name = fields.Char()
     capacity = fields.Integer()
     pets_allowed = fields.Boolean()
@@ -25,3 +26,7 @@ class Lodgin(models.Model):
     related_packs_ids = fields.One2many('bookings.lodgin_by_pack', 'lodgin_id', string= ' Lodgins by Pack')
     # One2many with lodgin_by_journey
     related_journeys_ids = fields.One2many('bookings.lodgin_by_journey', 'lodgin_id', string= ' Lodgins by Journey')
+
+    # -- Constraints --
+    # cif must be unique
+    # _sql_constraints = []

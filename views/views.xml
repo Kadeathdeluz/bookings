@@ -20,7 +20,7 @@
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="id"/>
+          <!--<field name="id"/>-->
           <field name="client_id"/>
           <field name="route_id"/>
           <!-- Calculated field: lodgins_count-->
@@ -123,7 +123,7 @@
           <field name="name"/>
           <field name="price"/>
           <field name="description"/>
-          <field name="pack_ids" widget="many2many_tags"/>
+          <field name="related_pack_ids" widget="many2many_tags"/>
         </tree>
       </field>
     </record>
@@ -146,7 +146,7 @@
                 <field name="pack_id"/>
                 <field name="state"/>
               </group>
-              <group>
+              <group string= "Requiremnts">
                 <field name="with_pet"/>
                 <field name="mobility_reduced"/>
               </group>
@@ -180,7 +180,7 @@
               <field name="price"/>
               <field name="description"/>
               <!-- Related packs -->
-              <field name="pack_ids" widget="many2many_tags" options="{'no_create': True}"/>
+              <field name="related_pack_ids" widget="many2many_tags" options="{'no_create': True}"/>
             </group>
           </sheet>
         </form>

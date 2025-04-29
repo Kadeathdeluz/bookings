@@ -11,6 +11,8 @@ class Client(models.Model):
     _description = 'Represents a client of the Camino de Santiago experience'
 
     # Table fields
+    # PK: dni
+    #dni = fields.Char()
     name = fields.Char()
     phone = fields.Char()
     email = fields.Char()
