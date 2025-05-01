@@ -30,19 +30,18 @@ class Journey(models.Model):
         )
 
     # -- Relations --
-    # FKs: client_id, route_id, pack_id and the date
     client_id = fields.Many2one('bookings.client', string= ' Client')
     route_id = fields.Many2one('bookings.route', string= ' Route')
     pack_id = fields.Many2one('bookings.pack', string= ' Pack')
-
-    # One2many with lodgin_by_journey
-    related_lodgins_ids = fields.One2many('bookings.lodgin_by_journey', 'journey_id', string= ' Lodgins by Journey')
-
-    # -- Constraints --
-    # client_id, route_id, pack_id and date must be unique together
-    # _sql_constraints = [
-    #     ('unique_journey_by_date', 'unique(client_id, route_id, pack_id, date)', 'The combination of client, route pack and date must be unique.')
-    # ]
+    
+    # Related lodgins to the current journey
+    related_lodgins_ids = fields.Many2many(
+        comodel_name='bookings.lodgin',
+        relation='bookings_lodgin_by_journey',
+        column1='journey_id',
+        column2='lodgin_id',
+        string='Booked lodgins'
+    )
 
     # -- Functions --
     # Returns the number of lodgins related to a journey

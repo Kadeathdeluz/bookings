@@ -28,8 +28,7 @@ class Lodgin(models.Model):
         column2='route_id',
         string='Founded in'
     )
-    # One2many with lodgin_by_pack
-    # related_packs_ids = fields.One2many('bookings.lodgin_by_pack', 'lodgin_id', string= ' Lodgins by Pack')
+
     # Related packs to the current lodgin
     related_packs_ids = fields.Many2many(
         comodel_name='bookings.pack',
@@ -38,9 +37,16 @@ class Lodgin(models.Model):
         column2='pack_id',
         string='Asociated to'
     )
-    # One2many with lodgin_by_journey
-    related_journeys_ids = fields.One2many('bookings.lodgin_by_journey', 'lodgin_id', string= ' Lodgins by Journey')
 
+    # Related journeys to the current lodgin
+    related_journeys_ids = fields.Many2many(
+        comodel_name='bookings.journey',
+        relation='bookings_lodgin_by_journey',
+        column1='lodgin_id',
+        column2='journey_id',
+        string='Booked in'
+    )
+    
     # -- Constraints --
     # cif must be unique
     # _sql_constraints = [

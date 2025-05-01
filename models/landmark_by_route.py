@@ -10,8 +10,6 @@ class LandmarkByRoute(models.Model):
     _description = 'Represents a landmark in a route'
     
     # -- Table fields --
-
-    # Other table fields
     order_in_route = fields.Integer(string='Order in route')
 
     # -- Relations --

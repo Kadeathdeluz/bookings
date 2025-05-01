@@ -16,10 +16,10 @@ class Route(models.Model):
     description = fields.Text()
 
     # -- Relations --
-    # One2many with landmark_by_route
+    # Related landmarks to the current route
     related_landmarks_ids = fields.One2many('bookings.landmark_by_route', 'route_id')
 
-    # Related routes to the current lodgin
+    # Related lodgins to the current route
     related_lodgins_ids = fields.Many2many(
         comodel_name='bookings.lodgin',
         relation='bookings_lodgin_by_route',
