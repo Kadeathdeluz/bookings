@@ -6,5 +6,4 @@ access_bookings_landmark,bookings.landmark,model_bookings_landmark,base.group_us
 access_bookings_journey,bookings.journey,model_bookings_journey,base.group_user,1,1,1,1
 access_bookings_item,bookings.item,model_bookings_item,base.group_user,1,1,1,1
 access_bookings_client,bookings.client,model_bookings_client,base.group_user,1,1,1,1
-access_bookings_lodgin_by_journey,bookings.lodgin_by_journey,model_bookings_lodgin_by_journey,base.group_user,1,1,1,1
 access_bookings_landmark_by_route,bookings.landmark_by_route,model_bookings_landmark_by_route,base.group_user,1,1,1,1
