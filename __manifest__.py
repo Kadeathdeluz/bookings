@@ -30,9 +30,20 @@
 
     # always loaded
     'data': [
+        # Security
         'security/ir.model.access.csv',
+        # Views
         'views/views.xml',
         'views/templates.xml',
+        # Data
+        # 'data/clients.xml',
+        # 'data/items.xml',
+        # 'data/landmarks.xml',
+        # 'data/packs.xml',
+        # 'data/routes.xml',
+        # 'data/ladnmarks_by_routes.xml',
+        # 'data/lodgins.xml',
+        # 'data/journeys.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
