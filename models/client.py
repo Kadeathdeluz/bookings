@@ -11,7 +11,6 @@ class Client(models.Model):
     _description = 'Represents a client of the Camino de Santiago experience'
 
     # Table fields
-    # PK: dni
     #dni = fields.Char(string='DNI', required=True)
     name = fields.Char(string='Name', required=True)
     phone = fields.Char(string='Phone', required=True)
@@ -19,7 +18,7 @@ class Client(models.Model):
     born_date = fields.Date(string='Born date', required=True)
 
     # -- Relations --
-    # One2many with journey
+    # Related journeys to the current client
     related_journeys_ids = fields.One2many(
         comodel_name='bookings.journey', 
         inverse_name='client_id', 
