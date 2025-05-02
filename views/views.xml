@@ -52,6 +52,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="url_maps"/>
           <field name="description"/>
           <field name="distance"/>
           <!--<field name="url_maps"/>-->
@@ -166,13 +167,23 @@
       <field name="arch" type="xml">
         <form string="Item">
           <sheet>
-            <group>
+            <group string="Info">
               <field name="name"/>
               <field name="price"/>
               <field name="description"/>
-              <!-- Related packs -->
-              <field name="related_pack_ids" widget="many2many_tags" options="{'no_create': True}"/>
             </group>
+              <!-- Related packs -->
+            <notebook>
+              <page string="Packs">
+                <field name="related_pack_ids">
+                  <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="description"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>
@@ -209,8 +220,14 @@
               </page>
 
               <page string="Lodgins">
-                <field name="related_lodgins_ids" widget="many2many_tags" string="Hospedajes relacionados"
-                   options="{'no_create': True}"/>
+                <field name="related_lodgins_ids">
+                  <tree>
+                    <field name="name"/>
+                    <field name="pets_allowed"/>
+                    <field name="reduced_mobility"/>
+                    <field name="capacity"/>
+                  </tree>
+                </field>
               </page>
             </notebook>
             
@@ -235,7 +252,7 @@
             </group>
 
             <notebook>
-              <page string="Included in">
+              <page string="Routes">
                 <field name="related_routes_ids">
                   <tree editable="bottom">
                     <field name="route_id"/>
@@ -254,6 +271,7 @@
         </form>
       </field>
     </record>
+    
     <!-- *** Actions opening views on models *** -->
 
     <!-- Journeys -->
