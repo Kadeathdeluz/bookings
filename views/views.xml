@@ -2,24 +2,13 @@
   <data>
     <!-- *** Explicit list view definition *** -->
 
-    <!-- <record model="ir.ui.view" id="bookings.bookings_list">
-      <field name="name">bookings list</field>
-      <field name="model">bookings.bookings</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record> -->
-
     <!-- Journeys -->
     <record model="ir.ui.view" id="bookings.journey_list">
       <field name="name">bookings.journey.list</field>
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
         <tree>
+        <field name="name"/>
           <field name="client_id"/>
           <field name="route_id"/>
           <!-- Calculated field: lodgins_count-->
@@ -134,8 +123,8 @@
       <field name="arch" type="xml">
         <form string="Journey">
           <sheet>
-            <group string="Journey">
-              <group string="Journey info">
+            <group>
+              <group string="General info">
                 <field name="name"/>
                 <field name="date"/>
                 <field name="client_id"/>
@@ -150,11 +139,16 @@
             </group>
 
             <notebook>
-              <page string="Hospedajes">
+              <page string="Lodgins">
                 <!-- Readonly because we want it to be automatic readonly="1"-->
                 <field name="related_lodgins_ids">
+                  <!-- Shows related lodgins in a tree view as it follows -->
                   <tree>
-                    <field name="lodgin_id"/>
+                    <!-- attributes of lodgin that will be shown -->
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="capacity"/>
                   </tree>
                 </field>
               </page>
@@ -183,6 +177,7 @@
         </form>
       </field>
     </record>
+
     <!-- Routes -->
     <record id="bookings.route_form" model="ir.ui.view">
       <field name="name">bookings.route.form</field>
@@ -235,7 +230,7 @@
               <field name="name"/>
               <field name="pointX"/>
               <field name="pointY"/>
-              <field name="type" widget="badge"/>
+              <field name="type"/>
               <field name="description"/>
             </group>
 
@@ -260,12 +255,6 @@
       </field>
     </record>
     <!-- *** Actions opening views on models *** -->
-
-    <!-- <record model="ir.actions.act_window" id="bookings.action_window">
-      <field name="name">Models</field>
-      <field name="res_model">bookings.bookings</field>
-      <field name="view_mode">tree,form</field>
-    </record> -->
 
     <!-- Journeys -->
     <record model="ir.actions.act_window" id="bookings.action_journey">
