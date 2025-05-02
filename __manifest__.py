@@ -5,7 +5,7 @@
     'summary': "Permite gestionar las reservas (crear, consultar, modificar).",
 
     'description': """
-         El módulo permite automatizar la reserva de hospedajes para un cliente, para una ruta y con un pack contratado.
+        El módulo permite automatizar la reserva de hospedajes para un cliente, para una ruta y con un pack contratado.
         - Dados los datos del cliente, gestiona la reserva de los hospedajes, teniendo en cuenta el tipo de pack elegido y la disponibilidad de los hospedajes.
         - Permite crear reservas asociadas a un cliente, una ruta y un pack.
         - Lista todas las rutas de todos los clientes.
@@ -25,7 +25,7 @@
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
-    
+    'installable': True,
     'application': True,
 
     # always loaded
@@ -36,13 +36,13 @@
         'views/views.xml',
         'views/templates.xml',
         # Data
-        # 'data/clients.xml',
-        # 'data/items.xml',
-        # 'data/landmarks.xml',
-        # 'data/packs.xml',
-        # 'data/routes.xml',
-        # 'data/ladnmarks_by_routes.xml',
-        # 'data/lodgins.xml',
+        'data/clients.xml',
+        'data/items.xml',
+        'data/landmarks.xml',
+        'data/packs.xml',
+        'data/routes.xml',
+        'data/landmarks_by_routes.xml',
+        'data/lodgins.xml',
         # 'data/journeys.xml',
     ],
     # only loaded in demonstration mode
