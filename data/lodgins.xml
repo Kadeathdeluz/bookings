@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    
+    <!-- Lodgin Casa Pepe -->
+    <record id="bookings.lodgin_casapepe" model="bookings.lodgin">
+      <field name="name">Casa Pepe</field>
+      <field name="capacity">20</field>
+      <field name="pets_allowed">1</field>
+      <field name="reduced_mobility">0</field>
+      <field name="phone">612345789</field>
+      <field name="email">casapepe@correo.es</field>
+      <field name="description">Hostal "Casa Pepe", se admiten mascotas (desde data).</field>
+      <field name="related_routes_ids" eval="[(6, 0, [ref('bookings.route_route1'), ref('bookings.route_french')])]"/>
+      <field name="related_packs_ids" eval="[(6, 0, [ref('bookings.pack_adventure'), ref('bookings.pack_premium')])]"/>
+    </record>
+    
+    <!-- Lodgin Hostal Papal -->
+    <record id="bookings.lodgin_hostalpapal" model="bookings.lodgin">
+      <field name="name">Hostal Papal</field>
+      <field name="capacity">100</field>
+      <field name="pets_allowed">1</field>
+      <field name="reduced_mobility">1</field>
+      <field name="phone">666111666</field>
+      <field name="email">hostalpapal@marcal.jual</field>
+      <field name="description">Descripción de Hostal Papal (desde data).</field>
+      <field name="related_routes_ids" eval="[(6, 0, [ref('bookings.route_routest')])]"/>
+      <field name="related_packs_ids" eval="[(6, 0, [ref('bookings.pack_premium')])]"/>
+    </record>
+    
+    <!-- Lodgin Casita de viaje -->
+    <record id="bookings.lodgin_casitadeviaje" model="bookings.lodgin">
+      <field name="name">Casita de viaje</field>
+      <field name="capacity">10</field>
+      <field name="pets_allowed">0</field>
+      <field name="reduced_mobility">0</field>
+      <field name="phone">2134546</field>
+      <field name="email">sdsfas@sdsfas.asdf</field>
+      <field name="description">asdafdsafasdafdsafasdafdsafasdafdsaf (desde data).</field>
+      <field name="related_routes_ids" eval="[(6, 0, [ref('bookings.route_french')])]"/>
+      <field name="related_packs_ids" eval="[(6, 0, [ref('bookings.pack_adventure')])]"/>
+    </record>
+
+  </data>
+</odoo>

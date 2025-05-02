@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+
+    <!-- Pack Adventure -->
+    <record id="bookings.pack_adventure" model="bookings.pack">
+      <field name="name">Adventure pack</field>
+      <field name="price">100.00</field>
+      <field name="description">Pack estándar que incluye lo básico.</field>
+      <!-- 6 means 'replace' in many2many to Odoo ORM;
+      0 means 'whole IDs list' -->
+      <field name="related_items_ids" eval="[(6, 0, [ref('bookings.item_Agua_0_5L'), ref('bookings.item_Tortilla_sc')])]"/>
+    </record>
+
+    <!-- Pack Adventure -->
+    <record id="bookings.pack_premium" model="bookings.pack">
+      <field name="name">Premium pack</field>
+      <field name="price">175.00</field>
+      <field name="description">Pack con lo esencial para disfrutar de una experiencia completa.</field>
+      <field name="related_items_ids" eval="[(6, 0, [ref('bookings.item_Agua_0_5L'), ref('bookings.item_Tortilla_sc'), ref('bookings.item_Tortilla_cc')])]"/>
+    </record>
+
+    <!-- Pack Test1 -->
+    <record id="bookings.pack_test1" model="bookings.pack">
+      <field name="name">Test1 pack</field>
+      <field name="price">1.00</field>
+      <field name="description">Pack para probar productos.</field>
+    </record>
+    
+  </data>
+</odoo>

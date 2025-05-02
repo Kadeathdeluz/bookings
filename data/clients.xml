@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+    <!-- Client Paco  -->
+    <record id="bookings.client_Pacoperez" model="bookings.client">
+      <field name="name">Paco Pérez</field>
+      <field name="phone">612343216</field>
+      <field name="email">paquitoelchocolatero@fallas.fiesta</field>
+      <field name="born_date">1946-12-25</field>
+    </record>
+
+    <!-- Client Federico  -->
+    <record id="bookings.client_Federicogarcialorca" model="bookings.client">
+      <field name="name">Federico García Lorca</field>
+      <field name="phone">666777888</field>
+      <field name="email">elfedereshulon@paprika.fede</field>
+      <field name="born_date">1898-07-05</field>
+    </record>
+
+    <!-- Client Elpri  -->
+    <record id="bookings.client_Elprimero" model="bookings.client">
+      <field name="name">Elprie Mero</field>
+      <field name="phone">654321098</field>
+      <field name="email">elprimero@correo.argh</field>
+      <field name="born_date">1946-12-25</field>
+    </record>
+
+    <!-- Client Marta  -->
+    <record id="bookings.client_Martamartinez" model="bookings.client">
+      <field name="name">Marta Matínez</field>
+      <field name="phone">654456654</field>
+      <field name="email">martitadinamita@roli.asdf</field>
+      <field name="born_date">2000-01-01</field>
+    </record>
+
+  </data>
+</odoo>

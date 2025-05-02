@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+    
+    <!-- Route Route 1 -->
+    <record id="bookings.route_route1" model="bookings.route">
+      <field name="name">Route 1</field>
+      <field name="distance">1.00</field>
+      <field name="url_maps">https://www.google.com/maps/dir/42.8705629,-8.5277672/42.8755646,-8.5433272/@42.8714125,-8.5436054,15z</field>
+      <field name="description">Ruta de un kilómetro, para pasear y comer.</field>
+    </record>
+    
+    <!-- Route French -->
+    <record id="bookings.route_french" model="bookings.route">
+      <field name="name">French Route</field>
+      <field name="distance">100.00</field>
+      <field name="url_maps">URL</field>
+      <field name="description">Ruta francesa del Camino de Santiago.</field>
+    </record>
+    
+    <!-- Route Routest -->
+    <record id="bookings.route_routest" model="bookings.route">
+      <field name="name">Routest</field>
+      <field name="distance">999.00</field>
+      <field name="url_maps">https://github.com/Kadeathdeluz/remoto_reservas_roldan</field>
+      <field name="description">The routest route.</field>
+    </record>
+
+  </data>
+</odoo>

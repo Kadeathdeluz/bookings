@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <!-- Item Agua  0,5L -->
+    <record id="bookings.item_Agua_0_5L" model="bookings.item">
+      <field name="name">Botella de agua 0,5L</field>
+      <field name="price">2.00</field>
+      <field name="description">Botella de agua de 0,5 litros.</field>
+    </record>
+
+    <!-- Item Tortilla patata sin cebolla  -->
+    <record id="bookings.item_Tortilla_sc" model="bookings.item">
+      <field name="name">Tortilla de patatas s/c</field>
+      <field name="price">5.00</field>
+      <field name="description">Tortilla de patatas sin cebolla.</field>
+    </record>
+
+    <!-- Item Tortilla patata con cebolla -->
+    <record id="bookings.item_Tortilla_cc" model="bookings.item">
+      <field name="name">Tortilla de patatas c/c</field>
+      <field name="price">5.00</field>
+      <field name="description">Tortilla de patatas con cebolla.</field>
+    </record>
+
+    <!-- Item Unknown -->
+    <record id="bookings.item_Unknown" model="bookings.item">
+      <field name="name">Unknown</field>
+      <field name="price">9.99</field>
+      <field name="description">El objeto especificado aún no existe.</field>
+    </record>
+    
+  </data>
+</odoo>
