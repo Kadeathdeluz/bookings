@@ -11,7 +11,7 @@ class Client(models.Model):
     _description = 'Represents a client of the Camino de Santiago experience'
 
     # Table fields
-    #dni = fields.Char(string='DNI', required=True)
+    dni = fields.Char(string='DNI',)
     name = fields.Char(string='Name', required=True)
     phone = fields.Char(string='Phone', required=True)
     email = fields.Char(string='Email', required=True)
@@ -26,6 +26,6 @@ class Client(models.Model):
 
     # -- Constraints --
     # dni field must be unique
-    # _sql_constraints = [
-    #     ('dni_UK', 'unique(dni)', 'DNI must be unique.')
-    # ]
+    _sql_constraints = [
+        ('dni_UK', 'unique(dni)', 'DNI must be unique.')
+    ]

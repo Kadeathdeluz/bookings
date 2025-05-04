@@ -81,6 +81,7 @@
       <field name="model">bookings.client</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="dni"/>
           <field name="name"/>
           <field name="phone"/>
           <field name="email"/>
@@ -316,6 +317,7 @@
         <form string="Client">
           <sheet>
             <group string="Info">
+              <field name="dni"/>
               <field name="name"/>
               <field name="born_date"/>
             </group>
