@@ -2,7 +2,7 @@
   <data>
     <!-- Client Paco  -->
     <record id="bookings.client_Pacoperez" model="bookings.client">
-      <field name="dni">12345678A</field>
+      <field name="dni">12345678Z</field>
       <field name="name">Paco Pérez</field>
       <field name="phone">612343216</field>
       <field name="email">paquitoelchocolatero@fallas.fiesta</field>
@@ -11,7 +11,7 @@
 
     <!-- Client Federico  -->
     <record id="bookings.client_Federicogarcialorca" model="bookings.client">
-      <field name="dni">87654321B</field>
+      <field name="dni">87654321X</field>
       <field name="name">Federico García Lorca</field>
       <field name="phone">666777888</field>
       <field name="email">elfedereshulon@paprika.fede</field>
@@ -20,7 +20,7 @@
 
     <!-- Client Elpri  -->
     <record id="bookings.client_Elprimero" model="bookings.client">
-      <field name="dni">11111111C</field>
+      <field name="dni">11111111H</field>
       <field name="name">Elprie Mero</field>
       <field name="phone">654321098</field>
       <field name="email">elprimero@correo.argh</field>
@@ -29,7 +29,7 @@
 
     <!-- Client Marta  -->
     <record id="bookings.client_Martamartinez" model="bookings.client">
-      <field name="dni">11223344Z</field>
+      <field name="dni">11223344B</field>
       <field name="name">Marta Matínez</field>
       <field name="phone">654456654</field>
       <field name="email">martitadinamita@roli.asdf</field>

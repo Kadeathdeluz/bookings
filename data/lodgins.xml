@@ -3,6 +3,7 @@
     
     <!-- Lodgin Casa Pepe -->
     <record id="bookings.lodgin_casapepe" model="bookings.lodgin">
+      <field name="cif">A12345678</field>
       <field name="name">Casa Pepe</field>
       <field name="capacity">20</field>
       <field name="pets_allowed">1</field>
@@ -16,6 +17,7 @@
     
     <!-- Lodgin Hostal Papal -->
     <record id="bookings.lodgin_hostalpapal" model="bookings.lodgin">
+      <field name="cif">B12345678</field>
       <field name="name">Hostal Papal</field>
       <field name="capacity">100</field>
       <field name="pets_allowed">1</field>
@@ -29,6 +31,7 @@
     
     <!-- Lodgin Casita de viaje -->
     <record id="bookings.lodgin_casitadeviaje" model="bookings.lodgin">
+      <field name="cif">C11223344</field>
       <field name="name">Casita de viaje</field>
       <field name="capacity">10</field>
       <field name="pets_allowed">0</field>
