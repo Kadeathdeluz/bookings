@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Client(models.Model):
     """
@@ -11,7 +12,7 @@ class Client(models.Model):
     _description = 'Represents a client of the Camino de Santiago experience'
 
     # Table fields
-    dni = fields.Char(string='DNI',)
+    dni = fields.Char(string='DNI',required=True)
     name = fields.Char(string='Name', required=True)
     phone = fields.Char(string='Phone', required=True)
     email = fields.Char(string='Email', required=True)

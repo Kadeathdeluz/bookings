@@ -10,7 +10,7 @@ class Lodgin(models.Model):
     _description = 'Represents a lodging that can be booked following a route of the Camino de Santiago with a concrete pack'
 
     # -- Table fields --
-    #cif = fields.Char()
+    cif = fields.Char(string='CIF', required=True)
     name = fields.Char(string='Name', required=True)
     capacity = fields.Integer(string='Capacity', required=True)
     pets_allowed = fields.Boolean(string='Pets allowed')
@@ -49,6 +49,6 @@ class Lodgin(models.Model):
     
     # -- Constraints --
     # cif must be unique
-    # _sql_constraints = [
-    #     ('dni_UK', 'unique(dni)', 'DNI must be unique.')
-    #     ]
+    _sql_constraints = [
+        ('cif_UK', 'unique(cif)', 'CIF must be unique.')
+        ]
