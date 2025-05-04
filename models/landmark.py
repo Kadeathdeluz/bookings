@@ -11,8 +11,8 @@ class Landmark(models.Model):
 
     # -- Table fields --
     name = fields.Char(string='Name', required=True)
-    pointX = fields.Char(string='Latitude', required=True)
-    pointY = fields.Char(string='Longitude', required=True)
+    pointX = fields.Char(string='Longitude', required=True)
+    pointY = fields.Char(string='Latitude', required=True)
     # A selection of landmark types
     type = fields.Selection(selection=[
         ('cultural', 'Cultural'),
