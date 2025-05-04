@@ -43,6 +43,12 @@ class Journey(models.Model):
         string='Lodgins'
     )
 
+    # -- Constraints --
+    # Fields client_id, route_id, pack_id and date must be unique (together)
+    _sql_constraints = [
+        ('journey_UK', 'unique(client_id, route_id, pack_id, date)', 'Fields client_id, route_id, pack_id and date must be unique together.')
+    ]
+
     # -- Functions --
     # Returns the number of lodgins related to a journey
     @api.depends('related_lodgins_ids')

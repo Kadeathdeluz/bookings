@@ -11,8 +11,8 @@ class Landmark(models.Model):
 
     # -- Table fields --
     name = fields.Char(string='Name', required=True)
-    pointX = fields.Char(string='Longitude', required=True)
-    pointY = fields.Char(string='Latitude', required=True)
+    pointX = fields.Char(string='Latitude', required=True)
+    pointY = fields.Char(string='Longitude', required=True)
     # A selection of landmark types
     type = fields.Selection(selection=[
         ('cultural', 'Cultural'),
@@ -23,18 +23,17 @@ class Landmark(models.Model):
         ('other', 'Other')
     ], string='Type'
     , required=True)
-    # order_in_route = fields.Integer() -> En realidad es un atributo de la tabla intermedia
     description = fields.Text(string='Description')
 
     # -- Relations --
-    # One2many with landmark_by_route
+    # Related routes
     related_routes_ids = fields.One2many('bookings.landmark_by_route', 'landmark_id', string= ' Routes')
 
     # -- Constraints --
     # pointX, pointY and type fields must be unique (together)
-    # _sql_constraints = [
-    #     ('pX_pY_type_UK', 'unique(pointX, pointY, type)', 'Combination of Long-Lat with type must be unique.')
-    # ]
+    _sql_constraints = [
+        ('pX_pY_type_UK', 'unique(pointX, pointY, type)', 'Combination of Long-Lat with type must be unique.')
+    ]
 
     # -- Functions --
     # Returns the name of the Route

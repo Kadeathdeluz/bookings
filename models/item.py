@@ -17,9 +17,9 @@ class Item(models.Model):
     # -- Relations --
     # Packs that include this item
     related_pack_ids = fields.Many2many(
-        comodel_name='bookings.pack',                      # Related model
-        relation='bookings_item_by_pack',                  # Actual name of the many2many table
-        column1='item_id',                                 # Column towards this model
-        column2='pack_id',                                 # Column towards the destination model
-        string='Packs'                               # Name of the field in the view
+        comodel_name='bookings.pack',                      
+        relation='bookings_item_by_pack',                  
+        column1='item_id',                                 
+        column2='pack_id',                                 
+        string='Packs'                                     
     )

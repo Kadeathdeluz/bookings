@@ -23,10 +23,3 @@ class LandmarkByRoute(models.Model):
         comodel_name='bookings.landmark', 
         string='Landmark', 
         ondelete= 'cascade')
-    
-    # -- Constraints --
-    # order_in_route must be unique for each route_id
-    # _sql_constraints = [
-    #     ('order_in_route_UK', 'unique(route_id, order_in_route)', 'Order in route must be unique for each route')
-    # ???
-    # ]
