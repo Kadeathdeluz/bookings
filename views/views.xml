@@ -8,7 +8,8 @@
       <field name="model">bookings.journey</field>
       <field name="arch" type="xml">
         <tree>
-        <field name="name"/>
+          <field name="name"/>
+          <field name="date"/>
           <field name="client_id"/>
           <field name="route_id"/>
           <!-- Calculated field: lodgins_count-->
@@ -52,9 +53,9 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="distance"/>
           <field name="url_maps"/>
           <field name="description"/>
-          <field name="distance"/>
           <!--<field name="url_maps"/>-->
         </tree>
       </field>
@@ -69,6 +70,7 @@
           <field name="name"/>
           <field name="price"/>
           <field name="description"/>
+          <field name="related_items_ids" widget="many2many_tags"/>
         </tree>
       </field>
     </record>
@@ -93,6 +95,7 @@
       <field name="model">bookings.landmark</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="name"/>
           <field name="pointX"/>
           <field name="pointY"/>
           <field name="type"/>
@@ -125,7 +128,7 @@
         <form string="Journey">
           <sheet>
             <group>
-              <group string="General info">
+              <group string="Info">
                 <field name="name"/>
                 <field name="date"/>
                 <field name="client_id"/>
@@ -139,6 +142,7 @@
               </group>
             </group>
 
+            <!-- Related lodgins -->
             <notebook>
               <page string="Lodgins">
                 <!-- Readonly because we want it to be automatic readonly="1"-->
@@ -172,7 +176,8 @@
               <field name="price"/>
               <field name="description"/>
             </group>
-              <!-- Related packs -->
+
+            <!-- Related packs -->
             <notebook>
               <page string="Packs">
                 <field name="related_pack_ids">
@@ -184,6 +189,7 @@
                 </field>
               </page>
             </notebook>
+            
           </sheet>
         </form>
       </field>
@@ -196,13 +202,14 @@
       <field name="arch" type="xml">
         <form string="Route">
           <sheet>
-            <group>
+            <group string="Info">
               <field name="name"/>
               <field name="distance"/>
               <field name="url_maps"/>
               <field name="description"/>
             </group>
 
+            <!-- Related landmarks and lodgins -->
             <notebook>
               <page string="Landmarks">
                 <field name="related_landmarks_ids">
@@ -218,7 +225,6 @@
                   </form>
                 </field>
               </page>
-
               <page string="Lodgins">
                 <field name="related_lodgins_ids">
                   <tree>
@@ -243,14 +249,15 @@
       <field name="arch" type="xml">
         <form string="Landmark">
           <sheet>
-            <group string="Landmark info">
+            <group string="Info">
               <field name="name"/>
               <field name="pointX"/>
               <field name="pointY"/>
               <field name="type"/>
               <field name="description"/>
             </group>
-
+            
+            <!-- Related routes -->
             <notebook>
               <page string="Routes">
                 <field name="related_routes_ids">
@@ -267,6 +274,141 @@
                 </field>
               </page>
             </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Packs -->
+    <record id="bookings.pack_form" model="ir.ui.view">
+      <field name="name">bookings.pack.form</field>
+      <field name="model">bookings.pack</field>
+      <field name="arch" type="xml">
+        <form string="Pack">
+          <sheet>
+            <group string="Info">
+              <field name="name"/>
+              <field name="price"/>
+              <field name="description"/>
+            </group>
+              <!-- Related items -->
+            <notebook>
+              <page string="Items">
+                <field name="related_items_ids">
+                  <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="description"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Clients -->
+    <record id="bookings.client_form" model="ir.ui.view">
+      <field name="name">bookings.client.form</field>
+      <field name="model">bookings.client</field>
+      <field name="arch" type="xml">
+        <form string="Client">
+          <sheet>
+            <group string="Info">
+              <field name="name"/>
+              <field name="born_date"/>
+            </group>
+            <group string="Contact">
+              <field name="phone"/>
+              <field name="email"/>
+            </group>
+            
+            <!-- Related journeys -->
+            <notebook>
+              <page string="Journeys">
+                <field name="related_journeys_ids" readonly="1">
+                  <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="client_id"/>
+                    <field name="route_id"/>
+                    <field name="lodgins_count"/>
+                    <field name="pack_id"/>
+                    <field name="state" 
+                      decoration-warning="state == 'pending'" 
+                      decoration-success="state == 'finished'"
+                      decoration-primary="state == 'progress'" 
+                      widget="badge"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Lodgins -->
+    <record id="bookings.lodgin_form" model="ir.ui.view">
+      <field name="name">bookings.lodgin.form</field>
+      <field name="model">bookings.lodgin</field>
+      <field name="arch" type="xml">
+        <form string="Lodgin">
+          <sheet>
+            <group string="Info">
+              <field name="name"/>
+              <field name="capacity"/>
+              <field name="description"/>
+            </group>
+            <group string="Contact">
+              <field name="phone"/>
+              <field name="email"/>
+            </group>
+            <group string="Requirements">
+              <field name="pets_allowed"/>
+              <field name="reduced_mobility"/>
+            </group>
+            
+            <!-- Related journeys -->
+            <notebook>
+              <page string="Journeys">
+                <field name="related_journeys_ids" readonly="1">
+                  <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="client_id"/>
+                    <field name="route_id"/>
+                    <field name="lodgins_count"/>
+                    <field name="pack_id"/>
+                    <field name="state" 
+                      decoration-warning="state == 'pending'" 
+                      decoration-success="state == 'finished'"
+                      decoration-primary="state == 'progress'" 
+                      widget="badge"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Packs">
+                <field name="related_packs_ids" readonly="1">
+                  <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="description"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Routes">
+                <field name="related_routes_ids" readonly="1">
+                  <tree>
+                    <field name="name"/>
+                    <field name="distance"/>
+                    <field name="description"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+            
           </sheet>
         </form>
       </field>
