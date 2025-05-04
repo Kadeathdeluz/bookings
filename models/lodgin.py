@@ -26,7 +26,7 @@ class Lodgin(models.Model):
         relation='bookings_lodgin_by_route',
         column1='lodgin_id',
         column2='route_id',
-        string='Founded in'
+        string='Routes'
     )
 
     # Related packs to the current lodgin
@@ -35,7 +35,7 @@ class Lodgin(models.Model):
         relation='bookings_lodgin_by_pack',
         column1='lodgin_id',
         column2='pack_id',
-        string='Asociated to'
+        string='Packs'
     )
 
     # Related journeys to the current lodgin
@@ -44,7 +44,7 @@ class Lodgin(models.Model):
         relation='bookings_lodgin_by_journey',
         column1='lodgin_id',
         column2='journey_id',
-        string='Booked in'
+        string='Journeys'
     )
     
     # -- Constraints --

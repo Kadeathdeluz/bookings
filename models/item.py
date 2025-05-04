@@ -21,5 +21,5 @@ class Item(models.Model):
         relation='bookings_item_by_pack',                  # Actual name of the many2many table
         column1='item_id',                                 # Column towards this model
         column2='pack_id',                                 # Column towards the destination model
-        string='Included in'                               # Name of the field in the view
+        string='Packs'                               # Name of the field in the view
     )

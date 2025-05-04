@@ -25,7 +25,7 @@ class Route(models.Model):
         relation='bookings_lodgin_by_route',
         column1='route_id',
         column2='lodgin_id',
-        string='Lodgins founded'
+        string='Lodgins'
     )
     
     # -- Functions --

@@ -28,7 +28,7 @@ class Landmark(models.Model):
 
     # -- Relations --
     # One2many with landmark_by_route
-    related_routes_ids = fields.One2many('bookings.landmark_by_route', 'landmark_id', string= ' Landmarks by Route')
+    related_routes_ids = fields.One2many('bookings.landmark_by_route', 'landmark_id', string= ' Routes')
 
     # -- Constraints --
     # pointX, pointY and type fields must be unique (together)

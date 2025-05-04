@@ -40,7 +40,7 @@ class Journey(models.Model):
         relation='bookings_lodgin_by_journey',
         column1='journey_id',
         column2='lodgin_id',
-        string='Booked lodgins'
+        string='Lodgins'
     )
 
     # -- Functions --

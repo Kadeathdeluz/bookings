@@ -22,7 +22,7 @@ class Client(models.Model):
     related_journeys_ids = fields.One2many(
         comodel_name='bookings.journey', 
         inverse_name='client_id', 
-        string= ' Journeys by Client')
+        string= 'Journeys')
 
     # -- Constraints --
     # dni field must be unique
