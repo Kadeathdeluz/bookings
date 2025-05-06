@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    
+    <!-- Journey Viaje 1 -->
+    <record id="bookings.journey_1" model="bookings.journey">
+      <!-- Journey info -->
+      <field name="name">Journey 1</field>
+      <field name="date">2025-12-25</field>
+      <field name="with_pet">1</field>
+      <field name="mobility_reduced">1</field>
+      <field name="state">pending</field>
+      <!-- Relations client_id, route_id, pack_id -->
+      <field name="client_id" ref="bookings.client_Pacoperez"/>
+      <field name="route_id" ref="bookings.route_french"/>
+      <field name="pack_id" ref="bookings.pack_adventure"/>
+      <!-- Related lodgins -->
+      <field name="related_lodgins_ids" eval="[(6, 0, [ref('bookings.lodgin_casapepe'),ref('bookings.lodgin_casitadeviaje')])]"/>
+    </record>
+    
+    <!-- Journey Viaje 2 -->
+    <record id="bookings.journey_2" model="bookings.journey">
+      <!-- Journey info -->
+      <field name="name">Journey 2</field>
+      <field name="date">2025-12-26</field>
+      <field name="with_pet">1</field>
+      <field name="mobility_reduced">0</field>
+      <field name="state">progress</field>
+      <!-- Relations client_id, route_id, pack_id -->
+      <field name="client_id" ref="bookings.client_Federicogarcialorca"/>
+      <field name="route_id" ref="bookings.route_french"/>
+      <field name="pack_id" ref="bookings.pack_adventure"/>
+      <!-- Related lodgins -->
+      <field name="related_lodgins_ids" eval="[(6, 0, [ref('bookings.lodgin_casapepe'),ref('bookings.lodgin_casitadeviaje')])]"/>
+    </record>
+    
+    <!-- Journey Viaje 3 -->
+    <record id="bookings.journey_3" model="bookings.journey">
+      <!-- Journey info -->
+      <field name="name">Journey 3</field>
+      <field name="date">2025-12-27</field>
+      <field name="with_pet">0</field>
+      <field name="mobility_reduced">0</field>
+      <field name="state">finished</field>
+      <!-- Relations client_id, route_id, pack_id -->
+      <field name="client_id" ref="bookings.client_Elprimero"/>
+      <field name="route_id" ref="bookings.route_french"/>
+      <field name="pack_id" ref="bookings.pack_premium"/>
+      <!-- Related lodgins -->
+      <field name="related_lodgins_ids" eval="[(6, 0, [ref('bookings.lodgin_hostalpapal')])]"/>
+    </record>
+
+  </data>
+</odoo>

@@ -43,7 +43,7 @@
         'data/routes.xml',
         'data/landmarks_by_routes.xml',
         'data/lodgins.xml',
-        # 'data/journeys.xml',
+        'data/journeys.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
