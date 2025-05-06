@@ -31,9 +31,9 @@ class Landmark(models.Model):
 
     # -- Constraints --
     # pointX, pointY and type fields must be unique (together)
-    _sql_constraints = [
-        ('pX_pY_type_UK', 'unique(pointX, pointY, type)', 'Combination of Long-Lat with type must be unique.')
-    ]
+    # _sql_constraints = [
+    #     ('pX_pY_type_UK', 'unique(pointX, pointY, type)', 'Combination of Long-Lat with type must be unique.')
+    # ]
 
     # -- Functions --
     # Returns the name of the Route
