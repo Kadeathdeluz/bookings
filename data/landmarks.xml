@@ -4,8 +4,8 @@
     <!-- Landmark Ciudade da Cultura -->
     <record id="bookings.landmark_Ciudade" model="bookings.landmark">
       <field name="name">Ciudade da Cultura de Galicia</field>
-      <field name="pointX">-8.527737886506577</field>
-      <field name="pointY">42.870580782691135</field>
+      <field name="pointX">-8.52770848962638</field>
+      <field name="pointY">42.87040702258483</field>
       <field name="type">cultural</field>
       <field name="description">Ciudade da Cultura de Galicia, lugar cultural gallego a las afueras de Santiago.</field>
     </record>
@@ -13,8 +13,8 @@
     <!-- Landmark La Galiciana -->
     <record id="bookings.landmark_Galiciana" model="bookings.landmark">
       <field name="name">La Galiciana</field>
-      <field name="pointX">-8.527737886506577</field>
-      <field name="pointY">42.870580782691135</field>
+      <field name="pointX">-8.543336019930582</field>
+      <field name="pointY">42.87567595793845</field>
       <field name="type">gastronomic</field>
       <field name="description">Zona de restauración extensa, de tipo mercado, con una gran variedad de platos internacionales, puestos de comida y bares.</field>
     </record>

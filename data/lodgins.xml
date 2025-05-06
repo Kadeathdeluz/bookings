@@ -25,7 +25,7 @@
       <field name="phone">666111666</field>
       <field name="email">hostalpapal@marcal.jual</field>
       <field name="description">Descripción de Hostal Papal (desde data).</field>
-      <field name="related_routes_ids" eval="[(6, 0, [ref('bookings.route_routest')])]"/>
+      <field name="related_routes_ids" eval="[(6, 0, [ref('bookings.route_french')])]"/>
       <field name="related_packs_ids" eval="[(6, 0, [ref('bookings.pack_premium')])]"/>
     </record>
     

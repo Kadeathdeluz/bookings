@@ -18,12 +18,12 @@
     </record>
     
     <!-- Route Routest -->
-    <record id="bookings.route_routest" model="bookings.route">
+    <!-- <record id="bookings.route_routest" model="bookings.route">
       <field name="name">Routest</field>
       <field name="distance">999.00</field>
       <field name="url_maps">https://github.com/Kadeathdeluz/remoto_reservas_roldan</field>
       <field name="description">The routest route.</field>
-    </record>
+    </record> -->
 
   </data>
 </odoo>

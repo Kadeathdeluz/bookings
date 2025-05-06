@@ -14,6 +14,20 @@
       <field name="route_id" ref="bookings.route_route1"/>
       <field name="landmark_id" ref="bookings.landmark_Galiciana"/>
     </record>
+    
+    <!-- Landmark_by_route: Ruta French - Ciudade da Cultura (order: 1)-->
+    <record id="bookings.landmark_by_route_routefrench_1" model="bookings.landmark_by_route">
+      <field name="order_in_route">1</field>
+      <field name="route_id" ref="bookings.route_french"/>
+      <field name="landmark_id" ref="bookings.landmark_Ciudade"/>
+    </record>
+    
+    <!-- Landmark_by_route: Ruta French - La Galiciana (order: 2)-->
+    <record id="bookings.landmark_by_route_routefrench_2" model="bookings.landmark_by_route">
+      <field name="order_in_route">2</field>
+      <field name="route_id" ref="bookings.route_french"/>
+      <field name="landmark_id" ref="bookings.landmark_Galiciana"/>
+    </record>
 
   </data>
 </odoo>
