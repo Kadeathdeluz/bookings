@@ -97,8 +97,8 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="pointX"/>
-          <field name="pointY"/>
+          <field name="point_x"/>
+          <field name="point_y"/>
           <field name="type"/>
           <field name="description"/>
         </tree>
@@ -148,7 +148,7 @@
             <!-- Related lodgins -->
             <notebook>
               <page string="Lodgins">
-                <!-- Readonly because we want it to be automatic readonly="1"-->
+                <!-- TODO: Readonly because we want it to be automatic readonly="1"-->
                 <field name="related_lodgins_ids">
                   <!-- Shows related lodgins in a tree view as it follows -->
                   <tree>
@@ -218,7 +218,8 @@
                 <field name="related_landmarks_ids">
                   <tree>
                     <field name="landmark_id"/>
-                    <field name="order_in_route"/>
+                    <field name="order_in_route"
+                      attrs="{'invisible':[('id','=',False)]}"/>
                   </tree>
                 </field>
               </page>
@@ -248,8 +249,8 @@
           <sheet>
             <group string="Info">
               <field name="name"/>
-              <field name="pointX"/>
-              <field name="pointY"/>
+              <field name="point_x"/>
+              <field name="point_y"/>
               <field name="type"/>
               <field name="description"/>
             </group>
@@ -265,6 +266,23 @@
                 </field>
               </page>
             </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Landmarks by Route -->
+    <record id="bookings.landmark_by_route_form" model="ir.ui.view">
+      <field name="name">bookings.landmark_by_route.form</field>
+      <field name="model">bookings.landmark_by_route</field>
+      <field name="arch" type="xml">
+        <form string="Related landmarks">
+          <sheet>
+            <group string="Info">
+              <field name="landmark_id"/>
+              <field name="route_id" invisible="1"/>
+              <field name="order_in_route" invisible="1"/>
+            </group>
           </sheet>
         </form>
       </field>
@@ -449,6 +467,13 @@
       <field name="name">Landmarks</field>
       <field name="res_model">bookings.landmark</field>
       <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Landmark by Route -->
+    <record model="ir.actions.act_window" id="bookings.action_landmark_by_route">
+      <field name="name">Landmarks by Route</field>
+      <field name="res_model">bookings.landmark_by_route</field>
+      <field name="view_mode">form</field>
     </record>
     
     <!-- Item -->

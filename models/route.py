@@ -17,7 +17,7 @@ class Route(models.Model):
 
     # -- Relations --
     # Related landmarks to the current route
-    related_landmarks_ids = fields.One2many('bookings.landmark_by_route', 'route_id')
+    related_landmarks_ids = fields.One2many('bookings.landmark_by_route', 'route_id', string=" Landmarks")
 
     # Related lodgins to the current route
     related_lodgins_ids = fields.Many2many(
@@ -49,9 +49,9 @@ class Route(models.Model):
             coords = []
             for entry in sorted_landmarks:
                 landmark = entry.landmark_id
-                if landmark and landmark.pointX and landmark.pointY:
+                if landmark and landmark.point_x and landmark.point_y:
                     # adds coords to the list
-                    coords.append(f"{landmark.pointY},{landmark.pointX}") # First append Latitude, then Longitude
+                    coords.append(f"{landmark.point_y},{landmark.point_x}") # First append Latitude, then Longitude
             if coords:
                 zoom = f"/@{coords[0]},15z" # Zoom points to the firs coord of the route with a 15z zoom
                 route.url_maps = f"{base_url}/{'/'.join(coords)}{zoom}"
