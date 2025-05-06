@@ -30,3 +30,25 @@ class Client(models.Model):
     _sql_constraints = [
         ('dni_UK', 'unique(dni)', 'DNI must be unique.')
     ]
+
+    # -- Functions --
+    # Decorator of a constraint checker
+    @api.constrains('dni')
+    def _check_dni_letter(self):
+        """
+        Validates that the DNI has a correct control letter.
+        Format: 8 digits + 1 letter (e.g., 12345678Z)
+        """
+        letters = 'TRWAGMYFPDXBNJZSQVHLCKE' # The order corresponds to [0..22] values
+        
+        for record in self:
+            dni = record.dni.upper()
+            # DNI format 8 digits + 1 letter validation
+            if len(dni) != 9 or not dni[:8].isdigit() or not dni[8].isalpha():
+                raise ValidationError("DNI format must be 8 digits followed by a letter (e.g., 12345678Z).")
+
+            # Control letter value validation
+            remainder = int(dni[:8])
+            expected_letter = letters[remainder % 23]
+            if dni[8] != expected_letter:
+                raise ValidationError(f"Incorrect letter of the DNI '{dni}'. It should be '{expected_letter}'.")
