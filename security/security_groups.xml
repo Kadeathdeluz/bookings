@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        
+        <record id="bookings.category_group" model="ir.module.category">
+            <field name="name">Bookings</field>
+        </record>
+        
+        <!-- Base User -->
+        <record id="bookings.group_base_user" model="res.groups">
+            <field name="name">Basic user</field>
+            <field name="category_id" ref="bookings.category_group"/>
+        </record>
+
+        <!-- ATC Bookings -->
+        <record id="bookings.group_atc_bookings" model="res.groups">
+            <field name="name">ATC bookings</field>
+            <field name="category_id" ref="bookings.category_group"/>
+        </record>
+        
+        <!-- Administrator -->
+        <record id="bookings.group_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="bookings.category_group"/>
+        </record>
+
+    </data>
+</odoo>
