@@ -32,3 +32,28 @@ class Route(models.Model):
     # Returns the name of the Route
     def name_get(self):
         return [(rec.id, rec.name) for rec in self]
+    
+    # Builds the url_maps attribute based on the related landmarks of the route
+    def _compute_url_maps(self):
+        base_url = "https://www.google.com/maps/dir"
+        
+        # Goes through the routes
+        for route in self:
+            # sorted landmarks by order in route
+            sorted_landmarks = sorted(
+                route.related_landmarks_ids,
+                # Lambda function to return sorted landmarks (by order_in_route)
+                key=lambda x: x.order_in_route # key to sort landmarks (by order_in_route)
+            )
+            # empty list to store coords to create the url
+            coords = []
+            for entry in sorted_landmarks:
+                landmark = entry.landmark_id
+                if landmark and landmark.pointX and landmark.pointY:
+                    # adds coords to the list
+                    coords.append(f"{landmark.pointY},{landmark.pointX}") # First append Latitude, then Longitude
+            if coords:
+                zoom = f"/@{coords[0]},15z" # Zoom points to the firs coord of the route with a 15z zoom
+                route.url_maps = f"{base_url}/{'/'.join(coords)}{zoom}"
+            else:
+                route.url_maps = False
