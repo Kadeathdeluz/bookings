@@ -24,6 +24,13 @@ class LandmarkByRoute(models.Model):
         string='Landmark', 
         ondelete= 'cascade', required=True)
     
+    #-- Calculated fields --
+    is_duplicate = fields.Boolean(
+        string="Is Duplicate",
+        compute='_compute_is_duplicate',
+        store=False
+    )
+    
     # -- Functions --
     @api.model
     # Updates the 'order_ir_route' of landmarks in a route and 'url_maps' of the route 
@@ -79,3 +86,21 @@ class LandmarkByRoute(models.Model):
             route._compute_url_maps()
         
         return res
+    
+    @api.depends('route_id', 'landmark_id')
+    #Computes if the landmark is a duplicate in a route
+    def _compute_is_duplicate(self):
+        for record in self:
+            # If the record is empty, skip it
+            if not record.route_id or not record.landmark_id:
+                record.is_duplicate = False
+                continue
+            
+            # Conunting with search_count the number of times that the landmark appears in a route
+            same_landmark_count = self.search_count([
+                ('route_id', '=', record.route_id.id),
+                ('landmark_id', '=', record.landmark_id.id)
+            ])
+            
+            # If the landmark appears more than once, it's duplicated
+            record.is_duplicate = (same_landmark_count > 1)
