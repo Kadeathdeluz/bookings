@@ -30,9 +30,9 @@ class Journey(models.Model):
         )
 
     # -- Relations --
-    client_id = fields.Many2one('bookings.client', string= ' Client')
-    route_id = fields.Many2one('bookings.route', string= ' Route')
-    pack_id = fields.Many2one('bookings.pack', string= ' Pack')
+    client_id = fields.Many2one('bookings.client', string= ' Client', required=True)
+    route_id = fields.Many2one('bookings.route', string= ' Route', required=True)
+    pack_id = fields.Many2one('bookings.pack', string= ' Pack', required=True)
     
     # Related lodgins to the current journey
     related_lodgins_ids = fields.Many2many(
