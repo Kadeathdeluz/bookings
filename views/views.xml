@@ -210,16 +210,20 @@
               <field name="distance"/>
               <field name="url_maps" readonly="1"/>
               <field name="description"/>
+              <field name="circular_emoji" 
+                widget= "char_emojis"
+                readonly="1"/>
             </group>
 
             <!-- Related landmarks and lodgins -->
             <notebook>
               <page string="Landmarks">
                 <field name="related_landmarks_ids">
-                  <tree>
+                  <tree decoration-danger="is_duplicate">
                     <field name="landmark_id"/>
                     <field name="order_in_route"
                       attrs="{'invisible':[('id','=',False)]}"/>
+                    <field name="is_duplicate" invisible="1"/>
                   </tree>
                 </field>
               </page>
