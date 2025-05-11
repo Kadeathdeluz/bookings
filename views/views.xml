@@ -144,6 +144,34 @@
                 <field name="mobility_reduced"/>
               </group>
             </group>
+            <group>
+             <div style="font-style:italic; font-size:16px">
+              <field name="suitable_lodgins" invisible="1"/>
+              <field name="booked_lodgins_msg" readonly="1"
+                decoration-danger="not suitable_lodgins"
+                decoration-info="suitable_lodgins"/>
+              </div>
+            </group>
+            <!-- <group>
+            <div style="text-align:center">
+              <button name="_onchange_autobooking" 
+                type="object"
+                string=" Buscar alojamientos" 
+                icon="fa-bed"
+                class="oe_highlight"
+                />
+            </div>
+            </group> -->
+            <!-- <group>
+            <div style="text-align:center">
+              <button name="_onchange_autobooking" 
+                type="object"
+                string=" Buscar alojamientos" 
+                icon="fa-bed"
+                class="oe_highlight"
+                />
+            </div>
+            </group> -->
 
             <!-- Related lodgins -->
             <notebook>
@@ -405,7 +433,7 @@
                 </field>
               </page>
               <page string="Packs">
-                <field name="related_packs_ids" readonly="1">
+                <field name="related_packs_ids">
                   <tree>
                     <field name="name"/>
                     <field name="price"/>
@@ -414,7 +442,7 @@
                 </field>
               </page>
               <page string="Routes">
-                <field name="related_routes_ids" readonly="1">
+                <field name="related_routes_ids">
                   <tree>
                     <field name="name"/>
                     <field name="distance"/>
