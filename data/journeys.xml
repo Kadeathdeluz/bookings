@@ -6,8 +6,8 @@
       <!-- Journey info -->
       <field name="name">Journey 1</field>
       <field name="date">2025-12-25</field>
-      <field name="with_pet">1</field>
-      <field name="mobility_reduced">1</field>
+      <field name="with_pet">0</field>
+      <field name="mobility_reduced">0</field>
       <field name="state">pending</field>
       <!-- Relations client_id, route_id, pack_id -->
       <field name="client_id" ref="bookings.client_Pacoperez"/>

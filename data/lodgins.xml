@@ -34,8 +34,8 @@
       <field name="cif">C11223344</field>
       <field name="name">Casita de viaje</field>
       <field name="capacity">10</field>
-      <field name="pets_allowed">0</field>
-      <field name="reduced_mobility">0</field>
+      <field name="pets_allowed">1</field>
+      <field name="reduced_mobility">1</field>
       <field name="phone">2134546</field>
       <field name="email">sdsfas@sdsfas.asdf</field>
       <field name="description">asdafdsafasdafdsafasdafdsafasdafdsaf (desde data).</field>
