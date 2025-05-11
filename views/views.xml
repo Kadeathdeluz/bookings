@@ -162,21 +162,10 @@
                 />
             </div>
             </group> -->
-            <!-- <group>
-            <div style="text-align:center">
-              <button name="_onchange_autobooking" 
-                type="object"
-                string=" Buscar alojamientos" 
-                icon="fa-bed"
-                class="oe_highlight"
-                />
-            </div>
-            </group> -->
 
             <!-- Related lodgins -->
             <notebook>
               <page string="Lodgins">
-                <!-- TODO: Readonly because we want it to be automatic readonly="1"-->
                 <field name="related_lodgins_ids">
                   <!-- Shows related lodgins in a tree view as it follows -->
                   <tree>
@@ -528,7 +517,7 @@
     <menuitem name="Contacts" id="bookings.menu_contacts" parent="bookings.menu_root"/>
     
     <!-- *** Actions *** -->
-
+    
     <!-- Journeys -->
     <menuitem name="Journeys" id="bookings.menu_viajes_list" parent="bookings.menu_journey"
               action="bookings.action_journey"/>
