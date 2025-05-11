@@ -24,7 +24,7 @@ class Route(models.Model):
     )
 
     circular_emoji = fields.Char(
-        string="Circular Status",
+        string="Type",
         compute= '_compute_circular_emoji',
         
     )
