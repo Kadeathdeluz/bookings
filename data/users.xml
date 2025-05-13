@@ -1,12 +1,12 @@
 <odoo>
-    <data>
+    <data noupdate="0">
         <!-- ** ATC Bookings Users ** -->
 
         <record id="user_atc_bookings" model="res.users">
             <field name="name">ATC Reservas</field>
             <field name="login">atc_bookings</field>
             <field name="password">atc_bookings</field>
-            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('bookings.group_ATC_BOOKINGS')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('bookings.group_ATC_BOOKINGS')])]"/>
         </record>
     </data>
 </odoo>
