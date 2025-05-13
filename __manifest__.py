@@ -20,7 +20,7 @@
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -30,8 +30,18 @@
 
     # always loaded
     'data': [
-        # Security
+        # Security - groups & ir.model.access.csv
         'security/ir.model.access.csv',
+        'security/security_groups.xml',
+        # Security - access files
+        'security/client_access.xml',
+        'security/item_access.xml',
+        'security/journey_access.xml',
+        'security/landmark_access.xml',
+        'security/landmark_by_route_access.xml',
+        'security/lodgin_access.xml',
+        'security/pack_access.xml',
+        'security/route_access.xml',
         # Views
         'views/views.xml',
         'views/templates.xml',
@@ -44,6 +54,7 @@
         'data/landmarks_by_routes.xml',
         'data/lodgins.xml',
         'data/journeys.xml',
+        'data/users.xml',
         # Reports
         'reports/journeys_templates.xml',
         'reports/journeys_reports.xml'

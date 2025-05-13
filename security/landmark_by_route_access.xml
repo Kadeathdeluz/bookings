@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <!-- (1) Basic user permissions -->
+        <record id="bookings.landmark_by_route_basic_user_access" model="ir.model.access">
+        <field name="name">Basic user access to Landmark by Route</field>
+        <field name="model_id" ref="model_bookings_landmark_by_route"/>
+        <field name="group_id" ref="base.group_user"></field>
+        <!-- Permissions -->
+        <field name="perm_read">0</field>
+        <field name="perm_create">0</field>
+        <field name="perm_write">0</field>
+        <field name="perm_unlink">0</field>
+        </record>
+
+        <!-- (2) ATC bookings user permissions -->
+        <record id="bookings.landmark_by_route_atc_user_access" model="ir.model.access">
+        <field name="name">ATC bookings user access to Landmark by Route</field>
+        <field name="model_id" ref="model_bookings_landmark_by_route"/>
+        <field name="group_id" ref="bookings.group_ATC_BOOKINGS"></field>
+        <!-- Permissions -->
+        <field name="perm_read">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_unlink">0</field>
+        </record>
+
+        <!-- (3) Admin permissions -->
+        <record id="bookings.landmark_by_route_admin_access" model="ir.model.access">
+        <field name="name">Admin access to Landmark by Route</field>
+        <field name="model_id" ref="model_bookings_landmark_by_route"/>
+        <field name="group_id" ref="bookings.group_ADMIN"></field>
+        <!-- Permissions -->
+        <field name="perm_read">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_unlink">1</field>
+        </record>
+    </data>
+</odoo>
