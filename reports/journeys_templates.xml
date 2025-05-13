@@ -1,32 +1,248 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_property_offers">
-        <t t-foreach="docs" t-as="property">
-            <t t-call="web.html_container">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                        <h2>
-                            <span t-field="property.name"/>
-                        </h2>
-                        <div>
-                            <strong>Expected Price: </strong>
-                            <span t-field="property.expected_price"/>
+    <!-- ** Journeys Report ** -->
+    <template id="report_journey_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <!-- docs[0] is the current doc (the current journey)-->
+                <div class="page" t-if="docs">
+                    <h3>Journey: <span t-esc="docs[0].name"/></h3>
+                    <!-- Journey info -->
+                    <div class="row-mb4">
+                        <div class="col">
+                            <!-- Journey general info: date, route info, pack info, and client info, with related lodgins -->
+                            <!-- t-options to set date format to (dd/MM/yyyy) -->
+                            <p><b>Date:</b> <span t-field="docs[0].date" t-options='{"format": "dd/MM/yyyy"}'/></p>
+                            <p><b>Route:</b> <span t-esc="docs[0].route_id.name"/></p>
+                            <p><b>Pack:</b> <span t-esc="docs[0].pack_id.name"/></p>
+                            <p><b>Price:</b> <span t-esc="docs[0].pack_id.price"/> €</p>
+                            
+                            <!-- <p><b>Status:</b>
+                                <span t-if="docs[0].state == 'pending'"> Pending</span>
+                                <span t-elif="docs[0].state == 'progress'"> In progress</span>
+                                <span t-else=""> Finished</span></p>-->
+                            
+                            <!-- Selector shows proper text corresponding to the value -->
+                            <p><b>Status:</b> <span t-esc="dict(docs[0]._fields['state'].selection).get(docs[0].state, '')"/></p>
                         </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-set="offers" t-value="property.mapped('offer_ids')"/>
-                                <tr t-foreach="offers" t-as="offer">
-                                    <td>
-                                        <span t-field="offer.price"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    </div>
+
+                    <!-- Horizontal line, color ligth grey -->
+                    <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+
+                    <!-- Client info -->
+                    <div class="row-mb4">
+                        <div class="col-6">
+                            <h4>Client</h4>
+                            <p><b>DNI:</b> <span t-esc="docs[0].client_id.dni"/> </p>
+                            <p><b>Name:</b> <span t-esc="docs[0].client_id.name"/> </p>
+                            <p><b>Phone:</b> <span t-esc="docs[0].client_id.phone"/></p>
+                            <p><b>Email:</b> <span t-esc="docs[0].client_id.email"/></p>
+                        </div>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div class="row-mb4">
+                        <div class="col-6">
+                            <h4>Special Requirements</h4>
+                            <ul>
+                                <li><b>Traveling with pet:</b> <span t-if="docs[0].with_pet"> Yes</span><span t-else=""> No</span></li>
+                                <li><b>Reduced mobility:</b> <span t-if="docs[0].mobility_reduced"> Yes</span><span t-else=""> No</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Page breaker to ensure consistency through the page-->
+                    <div style="page-break-before: always;"></div>
+
+                    <!-- Related Landmarks to journey's route -->
+                    <div class="row-mb4" t-if="docs[0].route_id.related_landmarks_ids">
+                        <!-- Route info: distance and landmarks -->
+                        <div class="col">
+                            <h4>Related Landmarks</h4>
+                            <p>Your route is <span t-esc="docs[0].route_id.distance"/> Km long, and there are <span t-esc="len(docs[0].route_id.related_landmarks_ids)"/> landmarks in it.</p>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="docs[0].route_id.related_landmarks_ids.landmark_id" t-as="landmark">
+                                        <td><span t-esc="landmark.name"/></td>
+                                        <!-- Selector shows proper text corresponding to the value -->
+                                        <td><span t-esc="dict(landmark._fields['type'].selection).get(landmark.type, '')"/></td>
+                                        <!-- Shows a maximum of 140 chars of the description with (...) at the end if needed -->
+                                        <td><span t-esc="landmark.description[:140] + ('...' if len(landmark.description) > 140 else '')"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Horizontal line, color ligth grey -->
+                    <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+                    
+                    <!-- Related lodgins info -->
+                    <div class="row-mb4" t-if="docs[0].related_lodgins_ids">
+                        <div class="col">
+                            <h4>Lodgings</h4>
+                            <p>There are <span t-esc="len(docs[0].related_lodgins_ids)"/> lodgins in your journey.</p>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Capacity</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="docs[0].related_lodgins_ids" t-as="lodgin">
+                                        <td><span t-esc="lodgin.name"/></td>
+                                        <td><span t-esc="lodgin.capacity"/></td>
+                                        <td><span t-esc="lodgin.phone"/></td>
+                                        <td><span t-esc="lodgin.email"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- ** Lodgin Report ** -->
+    <template id="report_lodgin_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <!-- o is the current doc (the current lodgin)-->
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h3>Lodgin: <span t-esc="o.name"/></h3>
+                        
+                        <!-- Lodgin info -->
+                        <div class="row-mb4">
+                            <div class="col">
+                                <p><b>CIF:</b> <span t-esc="o.cif"/></p>
+                                <p><b>Capacity:</b> <span t-esc="o.capacity"/> people</p>
+                                <p><b>Phone:</b> <span t-esc="o.phone"/></p>
+                                <p><b>Email:</b> <span t-esc="o.email"/></p>
+                            </div>
+                        </div>
+
+                        <!-- Horizontal line, color light grey -->
+                        <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+
+                        <!-- Requirements -->
+                        <div class="row-mb4">
+                            <div class="col-6">
+                                <h4>Special Requirements</h4>
+                                <ul>
+                                    <li><b>Pets allowed:</b> <span t-if="o.pets_allowed"> Yes</span><span t-else=""> No</span></li>
+                                    <li><b>Reduced mobility access:</b> <span t-if="o.reduced_mobility"> Yes</span><span t-else=""> No</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="row-mb4">
+                            <div class="col">
+                                <h4>Description</h4>
+                                <p t-esc="(o.description[:140] + ('...' if len(o.description) > 140 else '')) or 'No description available'"/>
+                            </div>
+                        </div>
+
+                        <!-- Page breaker -->
+                        <div style="page-break-before: always;"></div>
+
+                        <!-- Related routes -->
+                        <div class="row-mb4" t-if="o.related_routes_ids">
+                            <div class="col">
+                                <h4>Related Routes</h4>
+                                <p>Your lodgin is related to <span t-esc="len(o.related_routes_ids)"/> routes. </p>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Distance</th>
+                                            <th>Circular</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.related_routes_ids" t-as="route">
+                                            <td><span t-esc="route.name"/></td>
+                                            <td><span t-esc="route.distance"/> km</td>
+                                            <td><span t-esc="'Yes' if route.is_circular else 'No'"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Horizontal line, color light grey -->
+                        <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+
+                        <!-- Related journeys -->
+                        <div class="row-mb4" t-if="o.related_journeys_ids">
+                            <div class="col">
+                                <h4>Related Journeys</h4>
+                                <p>Your lodgin is related to <span t-esc="len(o.related_journeys_ids)"/> journeys.</p>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Client</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.related_journeys_ids.sorted('date', reverse=False)" t-as="journey">
+                                            <td><span t-esc="journey.name"/></td>
+                                            <td><span t-field="journey.date" t-options='{"format": "dd/MM/yyyy"}'/></td>
+                                            <td><span t-esc="journey.client_id.name"/></td>
+                                            <td>
+                                                <span t-esc="dict(journey._fields['state'].selection).get(journey.state, '')"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Horizontal line, color light grey -->
+                        <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+
+                        <!-- Horizontal line, color light grey -->
+                        <hr style="border-top: 2px solid #f5f5f5; margin: 20px 0;"/>
+
+                        <!-- Related packs -->
+                        <div class="row-mb4" t-if="o.related_packs_ids">
+                            <div class="col">
+                                <h4>Related Packs</h4>
+                                <p>Your lodgin is related to <span t-esc="len(o.related_packs_ids)"/> packs.</p>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.related_packs_ids.sorted('name', reverse=False)" t-as="pack">
+                                            <td><span t-esc="pack.name"/></td>
+                                            <td><span t-field="pack.price"/> €</td>
+                                            <td><span t-esc="pack.description"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
                 </t>
             </t>

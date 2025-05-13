@@ -44,6 +44,9 @@
         'data/landmarks_by_routes.xml',
         'data/lodgins.xml',
         'data/journeys.xml',
+        # Reports
+        'reports/journeys_templates.xml',
+        'reports/journeys_reports.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

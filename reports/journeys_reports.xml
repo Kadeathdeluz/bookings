@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Current Journey Report -->
+        <record id="action_report_journey" model="ir.actions.report">
+            <field name="name">Journey Report</field>
+            <field name="model">bookings.journey</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bookings.report_journey_template</field>
+            <field name="print_report_name">'Journey_Report'</field>
+            <field name="binding_model_id" ref="model_bookings_journey"/>
+            <field name="binding_type">report</field>
+            <field name="multi">True</field>
+        </record>
+
+        <!-- All Journeys Report -->
+        <record id="action_report_lodgin" model="ir.actions.report">
+            <field name="name">Lodgin Report</field>
+            <field name="model">bookings.lodgin</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bookings.report_lodgin_template</field>
+            <field name="report_file">bookings.report_lodgin_template</field>
+            <field name="print_report_name">'Lodgin_Report'</field>
+            <field name="binding_model_id" ref="model_bookings_lodgin"/>
+            <field name="binding_type">report</field>
+            <field name="multi">True</field>
+        </record>
+    </data>
+</odoo>
