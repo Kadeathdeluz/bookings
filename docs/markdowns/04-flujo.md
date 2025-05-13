@@ -8,7 +8,7 @@ permalink: /diagrama_de_flujo
 
 ## Crear y Consultar Reserva
 
-Este diagrama representa el proceso que sigue el sistema para la creación de una reserva, incluye verificaciones auotmatizadas y la notificación al cliente.
+Este diagrama representa el proceso que sigue el sistema para la creación de una reserva, incluye verificaciones auotmatizadas.
 
 ![Diagrama de flujo: Crear y Consultar Reserva](../images/diagrama_flujo.svg)
 
@@ -16,7 +16,6 @@ Este diagrama representa el proceso que sigue el sistema para la creación de un
 
 **Breve explicación:**
 - Se inicia con la selección del cliente, ruta y pack.
-- Se comprueba la disponibilidad del hospedaje.
+- Se filtran los alojamientos que estén en dicha ruta y asociados con dicho pack.
 - Se comprueban los requisitos (mascota y mov. reducida).
-- Si hay disponibilidad y se cumple con los requisitos, se registra la reserva.
-- Finalmente, se notifica al cliente antes del inicio de la ruta.
+- Si se cumple con los requisitos, se muestran los alojamientos disponibles antes de guardar.
