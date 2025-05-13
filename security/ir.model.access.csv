@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_bookings_route,bookings.route,model_bookings_route,base.group_user,1,1,1,1
-access_bookings_pack,bookings.pack,model_bookings_pack,base.group_user,1,1,1,1
-access_bookings_lodgin,bookings.lodgin,model_bookings_lodgin,base.group_user,1,1,1,1
-access_bookings_landmark,bookings.landmark,model_bookings_landmark,base.group_user,1,1,1,1
-access_bookings_journey,bookings.journey,model_bookings_journey,base.group_user,1,1,1,1
-access_bookings_item,bookings.item,model_bookings_item,base.group_user,1,1,1,1
-access_bookings_client,bookings.client,model_bookings_client,base.group_user,1,1,1,1
-access_bookings_landmark_by_route,bookings.landmark_by_route,model_bookings_landmark_by_route,base.group_user,1,1,1,1
+access_bookings_route,access_bookings_route,model_bookings_route,base.group_user,1,1,1,1
+access_bookings_pack,access_bookings_pack,model_bookings_pack,base.group_user,1,1,1,1
+access_bookings_lodgin,access_bookings_lodgin,model_bookings_lodgin,base.group_user,1,1,1,1
+access_bookings_landmark,access_bookings_landmark,model_bookings_landmark,base.group_user,1,1,1,1
+access_bookings_journey,access_bookings_journey,model_bookings_journey,base.group_user,1,1,1,1
+access_bookings_item,access_bookings_item,model_bookings_item,base.group_user,1,1,1,1
+access_bookings_client,access_bookings_client,model_bookings_client,base.group_user,1,1,1,1
+access_bookings_landmark_by_route,access_bookings_landmark_by_route,model_bookings_landmark_by_route,base.group_user,1,1,1,1
