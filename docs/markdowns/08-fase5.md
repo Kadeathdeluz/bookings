@@ -7,8 +7,8 @@ permalink: /fase5
 
 ## URL del módulo
 
-- [Módulo de Reservas (bookings)](https://github.com/Kadeathdeluz/remoto_reservas_roldan/)
-- [GitHub Pages - documentación]()
+- [Módulo de Reservas (bookings)](https://github.com/Kadeathdeluz/bookings/)
+- [GitHub Pages - documentación](https://kadeathdeluz.github.io/bookings/)
 
 ## Usuarios y contraseñas
 
